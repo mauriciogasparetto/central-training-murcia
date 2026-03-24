@@ -1,0 +1,1069 @@
+/* =========================================================================
+   MASTER LANDING PAGE (Sede La Flota) - Central Training Murcia
+   ========================================================================= */
+
+/* =====================================================================
+   1. NAVEGACIÓN (Desktop & Mobile)
+   ===================================================================== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    display: flex;
+    flex-direction: row;
+    /* Logo a la izquierda, menú a la derecha */
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--espaciado-sm) var(--espaciado-md);
+    background-color: rgba(5, 5, 5, 0.85) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    z-index: 9999 !important;
+    transition: background-color var(--transicion-suave);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Redundante, pero se mantiene la clase para lógica JS si la había */
+.site-header.is-scrolled {
+    background-color: rgba(5, 5, 5, 0.95) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+}
+
+.site-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}
+
+.main-nav {
+    display: none;
+    /* Oculto por defecto en móvil (requerirá menú hamburguesa JS) */
+}
+
+@media (min-width: 992px) {
+    .main-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        /* Prevención de overflow en pantallas justas */
+        gap: var(--espaciado-md);
+    }
+
+    .nav-link {
+        color: var(--color-blanco);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: var(--tamanio-pequeno);
+        letter-spacing: 1px;
+        padding: var(--espaciado-xs) 0;
+        position: relative;
+    }
+
+    /* Indicador estilo "Border Bottom" animado desde el centro */
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0%;
+        height: 2px;
+        background-color: var(--color-primario);
+        transition: width var(--transicion-rapida);
+    }
+
+    .nav-link:hover::after,
+    .nav-link:focus::after {
+        width: 100%;
+    }
+}
+
+.header-cta {
+    display: none;
+    /* Opcional en el header, ya tenemos el flotante */
+}
+
+@media (min-width: 768px) {
+    .header-cta {
+        display: inline-flex;
+        padding: var(--espaciado-xs) var(--espaciado-sm);
+        font-size: var(--tamanio-pequeno);
+    }
+}
+
+/* =====================================================================
+   2. HERO SECTION (Video Autoplay Muted)
+   ===================================================================== */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* El elemento <video> ocupando todo el fondo */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: var(--z-index-fondo);
+    object-fit: cover;
+    /* Asegura encuadre perfecto siempre */
+}
+
+/* Overlay para oscurecer el vídeo y resaltar el texto */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(10, 10, 10, 0.8) 0%,
+            rgba(10, 10, 10, 0.4) 50%,
+            rgba(10, 10, 10, 0.9) 100%);
+    z-index: 0;
+}
+
+/* Contenedor del contenido encima del video */
+.hero-content {
+    position: relative;
+    z-index: var(--z-index-base);
+    max-width: 800px;
+    padding: 0 var(--espaciado-md);
+    margin-top: calc(var(--espaciado-xl) * 2);
+}
+
+.hero-subtitle {
+    color: var(--color-texto-principal);
+    font-size: var(--tamanio-p);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-bottom: var(--espaciado-xs);
+    display: block;
+}
+
+.hero-content h1 {
+    text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.8);
+    margin-bottom: var(--espaciado-xl);
+}
+
+.hero-content .btn-outline-cta {
+    display: inline-block;
+    border: 3px solid var(--color-primario);
+    color: var(--color-primario);
+    padding: var(--espaciado-md) var(--espaciado-xl);
+    text-transform: uppercase;
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: var(--tamanio-h3);
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    backdrop-filter: blur(5px);
+}
+
+.hero-content .btn-outline-cta:hover {
+    background-color: var(--color-primario);
+    color: var(--color-negro);
+    transform: scale(1.05);
+}
+
+/* =====================================================================
+   3. SECCIÓN MODALIDADES (GRID CARDS PREMIUM)
+   ===================================================================== */
+.section-modalidades {
+    padding: var(--espaciado-xxl) 0;
+    background-color: var(--color-negro);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--espaciado-xl);
+}
+
+.section-title h2 {
+    color: var(--color-primario);
+    margin-bottom: var(--espaciado-xs);
+}
+
+.section-title p {
+    color: var(--color-texto-secundario);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.grid-modalidades {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* 1 columna en móvil */
+    gap: var(--espaciado-md);
+}
+
+@media (min-width: 768px) {
+    .grid-modalidades {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 cols tablets */
+        gap: var(--espaciado-lg);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-modalidades {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 cols desktop */
+    }
+}
+
+/* La Tarjeta Fotográfica de Modalidad (Estilo Gymbox) */
+.card-modalidad {
+    background-color: var(--color-gris-oscuro);
+    border-radius: var(--radio-borde-tarjeta);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Borde sutil cristal */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* Empuja el texto al fondo */
+    min-height: 400px;
+    padding: var(--espaciado-lg);
+}
+
+.card-modalidad .bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    z-index: 0;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s ease;
+    filter: brightness(0.6);
+    /* Ligeramente oscuro por defecto */
+}
+
+/* Gradiente oscuro inferior interactivo */
+.card-modalidad::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+    transition: opacity 0.6s ease;
+}
+
+.card-content-wrapper {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+    /* Acomoda el texto abajo */
+}
+
+.card-title {
+    font-family: var(--fuente-titulos);
+    font-size: 1.6rem !important;
+    line-height: 1.1 !important;
+    word-break: keep-all !important;
+    white-space: pre-wrap !important;
+    color: var(--color-blanco);
+    text-transform: uppercase;
+    margin-bottom: var(--espaciado-xs);
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.4s ease;
+    transform-origin: bottom left;
+}
+
+.card-desc {
+    color: var(--color-texto-secundario);
+    font-size: var(--tamanio-p);
+    margin-bottom: var(--espaciado-md);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.card-action {
+    color: var(--color-primario);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: var(--tamanio-pequeno);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+}
+
+/* =====================================================================
+   EFECTO HOVER EXTREMO GYMBOX
+   ===================================================================== */
+.card-modalidad:hover .bg-image,
+.card-modalidad:focus .bg-image {
+    transform: scale(1.1);
+    filter: brightness(0.2) blur(3px);
+    /* Oscurecimiento abrupto y blur */
+}
+
+.card-modalidad:hover,
+.card-modalidad:focus {
+    outline: none;
+    border-color: rgba(242, 238, 51, 0.5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(242, 238, 51, 0.2);
+}
+
+.card-modalidad:hover .card-title,
+.card-modalidad:focus .card-title {
+    transform: scale(1.1) translateY(-10px);
+    color: var(--color-primario);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+.card-modalidad:hover .card-desc,
+.card-modalidad:focus .card-desc,
+.card-modalidad:hover .card-action,
+.card-modalidad:focus .card-action {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =====================================================================
+   4. SOCIAL PROOF (TESTIMONIOS & AUTORIDAD)
+   ===================================================================== */
+.section-autoridad {
+    padding: var(--espaciado-xxl) 0;
+    background-color: #050505;
+    /* Un negro ligeramente distinto para contrate */
+    border-top: 1px solid var(--color-gris-oscuro);
+    border-bottom: 1px solid var(--color-gris-oscuro);
+}
+
+.autoridad-resumen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: var(--espaciado-xl);
+}
+
+.estrellas {
+    color: #FFD700;
+    /* Oro Google */
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin-bottom: var(--espaciado-xs);
+}
+
+.grid-testimonios {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espaciado-md);
+}
+
+@media (min-width: 992px) {
+    .grid-testimonios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.testimonio-card {
+    background-color: var(--color-negro);
+    padding: var(--espaciado-lg);
+    border-radius: var(--radio-borde-tarjeta);
+    border-left: 4px solid var(--color-primario);
+    box-shadow: var(--sombra-tarjeta);
+}
+
+.testimonio-texto {
+    font-style: italic;
+    color: var(--color-texto-principal);
+    margin-bottom: var(--espaciado-sm);
+    font-size: var(--tamanio-p);
+}
+
+.testimonio-autor {
+    font-family: var(--fuente-titulos);
+    color: var(--color-blanco);
+    text-transform: uppercase;
+    font-size: var(--tamanio-pequeno);
+}
+
+/* =====================================================================
+   5. FOOTER & MAPA
+   ===================================================================== */
+.site-footer {
+    padding: var(--espaciado-xl) 0;
+    background-color: var(--color-negro);
+    text-align: center;
+}
+
+.footer-info {
+    margin-bottom: var(--espaciado-md);
+    color: var(--color-texto-secundario);
+}
+
+.footer-brand {
+    font-family: var(--fuente-titulos);
+    font-size: var(--tamanio-h3);
+    color: var(--color-blanco);
+    margin-bottom: var(--espaciado-xs);
+}
+
+/* =====================================================================
+   6. INSTALACIONES (Mosaico Asimétrico)
+   ===================================================================== */
+.section-instalaciones {
+    padding: var(--espaciado-xxl) 0;
+    background-color: var(--color-gris-oscuro);
+}
+
+.mosaico-galeria {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espaciado-sm);
+}
+
+@media (min-width: 768px) {
+    .mosaico-galeria {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-auto-rows: 280px;
+        /* Altura base para forzar proporciones */
+    }
+}
+
+.mosaico-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radio-borde-tarjeta);
+    box-shadow: var(--sombra-tarjeta);
+    height: 250px;
+    /* Base móvil */
+}
+
+@media (min-width: 768px) {
+    .mosaico-item {
+        height: auto;
+        /* Toma el grid-auto-rows en desktop */
+    }
+
+    /* Hacer que el primer elemento destaque como protagonista */
+    .mosaico-item.featured {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+}
+
+.mosaico-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.mosaico-item:hover .mosaico-img {
+    transform: scale(1.05);
+    /* Efecto zoom interior lujoso */
+}
+
+/* =====================================================================
+   7. EL EQUIPO (Cards Profesores)
+   ===================================================================== */
+.section-equipo {
+    padding: var(--espaciado-xxl) 0;
+    background-color: var(--color-negro);
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.grid-equipo {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espaciado-lg);
+}
+
+@media (min-width: 768px) {
+    .grid-equipo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-equipo {
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 profesores en fila */
+    }
+}
+
+.card-profesor {
+    background-color: var(--color-gris-oscuro);
+    border-radius: var(--radio-borde-tarjeta);
+    overflow: hidden;
+    text-align: center;
+    transition: transform var(--transicion-suave), box-shadow var(--transicion-suave);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.card-profesor:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(242, 238, 51, 0.1);
+    border-color: rgba(242, 238, 51, 0.2);
+}
+
+.profesor-foto-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* Retrato 1:1 Cuadrado */
+    overflow: hidden;
+    position: relative;
+    background-color: var(--color-negro);
+    /* Si la imagen no carga rápido */
+}
+
+.profesor-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s ease;
+    /* Efecto cinematográfico por defecto, revela color al hover */
+    filter: grayscale(80%) contrast(1.1);
+}
+
+.card-profesor:hover .profesor-foto {
+    transform: scale(1.05);
+    filter: grayscale(0%) contrast(1);
+}
+
+.profesor-info {
+    padding: var(--espaciado-lg) var(--espaciado-md);
+}
+
+.profesor-nombre {
+    font-family: var(--fuente-titulos);
+    font-size: var(--tamanio-h4);
+    color: var(--color-blanco);
+    margin-bottom: 4px;
+}
+
+.profesor-cargo {
+    color: var(--color-primario);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: var(--espaciado-sm);
+    display: block;
+}
+
+.profesor-desc {
+    font-size: var(--tamanio-pequeno);
+    color: var(--color-texto-secundario);
+    line-height: 1.5;
+}
+
+/* =====================================================================
+   7. NUEVAS SECCIONES Y COMPONENTES BRUTALISTAS (Historia, Tablón, Badges)
+   ===================================================================== */
+
+/* Badge Tienda */
+.nav-badge {
+    font-size: 0.65rem;
+    background-color: var(--color-primario);
+    color: var(--color-negro);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+    font-weight: 800;
+    text-transform: uppercase;
+    vertical-align: super;
+}
+
+/* Sección Historia Brutalista */
+.section-historia {
+    padding: var(--espaciado-xxl) 0;
+    background-color: var(--color-negro);
+    color: var(--color-texto-principal);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.historia-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.historia-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 4rem !important;
+    align-items: start !important;
+}
+
+@media (min-width: 992px) {
+    .historia-grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .historia-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.historia-text h2 {
+    color: var(--color-primario);
+    font-size: var(--tamanio-h2);
+    margin-bottom: var(--espaciado-lg);
+    text-transform: uppercase;
+}
+
+.historia-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: var(--espaciado-md);
+    color: #ccc;
+}
+
+.historia-text p:first-of-type {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-blanco);
+}
+
+.historia-img-wrapper {
+    position: sticky !important;
+    top: 120px !important;
+    width: 100%;
+}
+
+.historia-img-wrapper img {
+    width: 100% !important;
+    max-height: 500px !important;
+    height: auto;
+    object-fit: cover !important;
+    border: 4px solid var(--color-primario) !important;
+    box-shadow: 15px 15px 0 var(--color-primario);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.historia-img-wrapper:hover img {
+    transform: scale(1.03) translate(-5px, -5px);
+    box-shadow: 20px 20px 0 var(--color-primario);
+}
+
+/* Tablón de Anuncios */
+.section-tablon {
+    padding: var(--espaciado-xl) 0 var(--espaciado-xxl);
+    background-color: var(--color-gris-oscuro);
+}
+
+.grid-tablon {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espaciado-lg);
+    margin-top: var(--espaciado-lg);
+}
+
+.card-tablon {
+    background: var(--color-negro);
+    border-left: 4px solid var(--color-primario);
+    padding: var(--espaciado-lg);
+    border-radius: 4px;
+    transition: transform var(--transicion-rapida);
+}
+
+.card-tablon:hover {
+    transform: translateY(-5px);
+}
+
+.card-tablon.aviso {
+    border-left-color: #ff3333;
+    /* For notice/alerts */
+}
+
+.tablon-fecha {
+    font-family: var(--fuente-titulos);
+    color: var(--color-primario);
+    font-size: var(--tamanio-pequeno);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: var(--espaciado-xs);
+}
+
+.tablon-titulo {
+    font-size: var(--tamanio-h3);
+    margin-bottom: var(--espaciado-xs);
+}
+
+/* =====================================================================
+   8. NUEVO CTA WHATSAPP (BADGE GIRATORIO)
+   ===================================================================== */
+.btn-whatsapp-float {
+    position: fixed !important;
+    bottom: var(--espaciado-md) !important;
+    right: var(--espaciado-md) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: var(--color-negro) !important;
+    border: 2px solid var(--color-primario) !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    width: 80px !important;
+    height: 80px !important;
+    text-decoration: none !important;
+    z-index: 9999 !important;
+    transition: all var(--transicion-suave) !important;
+    overflow: visible !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+.btn-whatsapp-float:hover {
+    transform: scale(1.05) translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(242, 238, 51, 0.3) !important;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* =====================================================================
+   9. UBICACIÓN Y CONTACTO
+   ===================================================================== */
+.section-contacto {
+    background-color: var(--color-negro);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contacto-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4rem !important;
+    align-items: center !important;
+    padding: 4rem 2rem;
+    background-color: #050505;
+}
+
+@media (max-width: 992px) {
+    .contacto-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.contacto-info h2 {
+    font-family: var(--fuente-titulos) !important;
+    color: var(--color-primario);
+    font-size: 3rem !important;
+    margin-bottom: 1rem;
+}
+
+/* Nuevos Estilos de Contacto Fenriz Style */
+.contacto-desc {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #ccc;
+}
+
+.contacto-desc strong {
+    color: var(--color-primario);
+}
+
+.contacto-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-action {
+    padding: 12px 24px;
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-action.primary {
+    background-color: var(--color-primario);
+    color: #000;
+    font-weight: 800;
+    border: 2px solid var(--color-primario);
+}
+
+.btn-action.primary:hover {
+    background-color: transparent;
+    color: var(--color-primario);
+}
+
+.btn-action.secondary {
+    background-color: transparent;
+    color: var(--color-primario);
+    font-weight: 800;
+    border: 2px solid var(--color-primario);
+}
+
+.btn-action.secondary:hover {
+    background-color: var(--color-primario);
+    color: #000;
+}
+
+.contacto-mapa iframe {
+    filter: grayscale(100%) invert(90%) contrast(1.2);
+    transition: filter 0.4s ease;
+    border-radius: 12px !important;
+    max-height: 350px !important;
+}
+
+.contacto-mapa iframe:hover {
+    filter: none;
+}
+
+/* Footer Fenriz Style */
+.site-footer {
+    background-color: #050505;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4rem 2rem 2rem;
+    text-align: center;
+}
+
+.footer-logo {
+    display: block;
+    width: 120px;
+    margin: 0 auto 3rem auto;
+    /* Centrado absoluto */
+    filter: grayscale(100%) brightness(200%);
+    transition: filter 0.3s ease;
+}
+
+.footer-logo:hover {
+    filter: none;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    /* Solicitado por el cliente */
+}
+
+.footer-col h4 {
+    font-family: var(--fuente-titulos);
+    color: #fff;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-col p {
+    color: #888;
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.footer-col strong {
+    color: #ccc;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Para centrar los iconos desde flex */
+    gap: 1rem;
+}
+
+.social-item {
+    color: #888;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.social-item:hover {
+    color: var(--color-primario);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 2rem;
+    color: #555;
+    font-size: 0.85rem;
+}
+
+/* Menú Swipe en Mobile */
+@media (max-width: 768px) {
+
+    .site-header nav,
+    .site-header nav ul,
+    .site-header .main-nav {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 1.5rem !important;
+        padding-bottom: 5px !important;
+        justify-content: flex-start !important;
+    }
+
+    .site-header nav ul li {
+        flex: 0 0 auto !important;
+    }
+
+    .site-header nav::-webkit-scrollbar,
+    .site-header nav ul::-webkit-scrollbar,
+    .site-header .main-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .social-links {
+        align-items: center;
+    }
+
+    .contacto-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-action {
+        width: 100%;
+    }
+}
+
+/* Efecto Premium para el Parking */
+.badge-parking {
+    display: block !important;
+    text-align: center !important;
+    width: fit-content;
+    margin: 1.5rem auto 0 auto !important;
+    padding: 5px 15px;
+    border: 1px solid var(--color-primario);
+    border-radius: 50px;
+    color: var(--color-primario);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+    0% {
+        box-shadow: 0 0 0 0 rgba(242, 238, 51, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(242, 238, 51, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(242, 238, 51, 0);
+    }
+}
+
+/* =========================================
+   CORREÇÕES FORÇADAS MOBILE (MENU E LOGO)
+   ========================================= */
+
+/* A CAIXA MESTRA DO CELULAR ABRE AQUI */
+@media (max-width: 768px) {
+
+    /* 1. Header de volta ao normal (Logo na esquerda, Menu Swipe na direita/baixo dependendo do touch) */
+    .site-header {
+        padding: 5px 15px !important;
+        gap: 15px !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    .site-header a:first-child {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: auto;
+    }
+
+    .site-logo {
+        height: 45px !important;
+        width: auto !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* 2. Menu Swipe Estilo 'App Pills' (Muito mais elegante e legível) */
+    .site-header nav.main-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        padding: 5px 20px 15px 20px !important;
+        /* Espaço nas laterais e embaixo */
+    }
+
+    .site-header nav.main-nav .nav-link {
+        flex: 0 0 auto !important;
+        white-space: nowrap !important;
+        font-size: 0.95rem !important;
+        padding: 8px 16px !important;
+        background-color: rgba(255, 255, 255, 0.08);
+        /* Fundo de 'Pílula' */
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff !important;
+    }
+
+    .site-header nav.main-nav .nav-link:active,
+    .site-header nav.main-nav .nav-link:hover {
+        background-color: var(--color-primario) !important;
+        color: #000 !important;
+        border-color: var(--color-primario) !important;
+    }
+
+    /* 3. Esconde a barra de rolagem feia do menu */
+    .site-header nav.main-nav::-webkit-scrollbar {
+        display: none !important;
+    }
+
+}
+
+/* A CAIXA MESTRA DO CELULAR FECHA AQUI - NUNCA ESQUEÇA DELA */

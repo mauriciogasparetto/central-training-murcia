@@ -1,0 +1,177 @@
+/* =========================================================================
+   ESTILOS GLOBALES & RESET - Central Training Murcia
+   ========================================================================= */
+
+/* IMPORTACIÓN DE FUENTES EXCLUSIVAMENTE DESDE GOOGLE FONTS (Bebas Neue & Inter) */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap');
+
+/* =====================================================================
+   1. RESETS UNIVERSALES
+   ===================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: var(--tamanio-texto-base);
+    scroll-behavior: smooth;
+    /* Previene el zoom horizontal extremo en móviles */
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    color: var(--color-texto-principal);
+    background-color: var(--color-negro);
+    line-height: 1.6;
+    min-height: 100vh;
+    /* Previene el scroll de bounce (efecto rebote) en navegadores móviles */
+    overscroll-behavior: none;
+    overflow-x: hidden;
+}
+
+section {
+    scroll-margin-top: 100px;
+}
+
+/* Tipografía Básica */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-texto-principal);
+    line-height: 1.2;
+    margin-bottom: var(--espaciado-sm);
+    letter-spacing: var(--espaciado-letras-titulos, 1px) !important;
+}
+
+h1 {
+    font-size: var(--tamanio-h1);
+    font-weight: 800;
+}
+
+h2 {
+    font-size: var(--tamanio-h2);
+}
+
+h3 {
+    font-size: var(--tamanio-h3);
+}
+
+p {
+    margin-bottom: var(--espaciado-md);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transicion-rapida);
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+/* =====================================================================
+   2. COMPONENTES COMUNES Y UTILERÍAS (Desarrollo "Don't Repeat Yourself")
+   ===================================================================== */
+
+/* Contenedor principal para un buen espaciado lateral responsive */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--espaciado-md);
+}
+
+/* 
+   Botones Base - Enfoque CRO (Probar Clase Gratis)
+   Este estilo CTA debe generar una altísima tasa de clic en Mobile y Desktop
+*/
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primario);
+    color: var(--color-negro);
+    font-family: var(--fuente-titulos);
+    font-size: var(--tamanio-p);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: var(--espaciado-sm) var(--espaciado-lg);
+    border-radius: var(--radio-borde-boton);
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--sombra-cta);
+    transition: all var(--transicion-rapida);
+    text-align: center;
+}
+
+.btn-cta:hover,
+.btn-cta:focus {
+    background-color: var(--color-primario-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(242, 238, 51, 0.6);
+    outline: none;
+}
+
+/* Botón fantasma (Outline) para acciones secundarias */
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: var(--color-blanco);
+    font-family: var(--fuente-texto);
+    font-size: var(--tamanio-p);
+    font-weight: 600;
+    padding: var(--espaciado-sm) var(--espaciado-lg);
+    border: 2px solid var(--color-blanco);
+    border-radius: var(--radio-borde-boton);
+    cursor: pointer;
+    transition: all var(--transicion-rapida);
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+}
+
+/* =====================================================================
+   3. ACCESIBILIDAD (WCAG)
+   Solo visibles para lectores de pantalla. Evita saltos de tabulación ciegos.
+   ===================================================================== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Visibilidad de enfoque para navegación por teclado */
+*:focus-visible {
+    outline: 3px solid var(--color-primario);
+    outline-offset: 2px;
+}

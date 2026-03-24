@@ -1,0 +1,142 @@
+/* =========================================================================
+   TABLA DE HORARIOS (horarios.css) - Central Training Murcia
+   Matrix CSS Grid con Sticky Column (Mobile-First y Premium)
+   ========================================================================= */
+
+/* Contenedor que permite un scroll horizontal nativo súper fluido */
+.horarios-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    /* Momentum scrolling iOS */
+    /* Ligera sombra interna para indicar que hay más contenido oculto */
+    box-shadow: inset -10px 0 10px -10px rgba(0, 0, 0, 0.5);
+    background-color: var(--color-negro);
+    border-radius: var(--radio-borde-tarjeta);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: var(--espaciado-xl);
+}
+
+/* Sistema Grid Dinámico - 7 Columnas */
+.horarios-grid {
+    display: grid;
+    /* 1 Columna de Disciplinas (fija) + 6 Columnas de Días (scrollables) */
+    /* Ajustamos el minmax para garantizar que el texto cabe sin apretarse en móvil */
+    grid-template-columns: minmax(140px, auto) repeat(6, minmax(130px, 1fr));
+    min-width: 800px;
+    /* Fuerza el desborde horizontal en móviles puros */
+}
+
+/* Células base (headers vacíos, días, contenido) */
+.grid-cell {
+    padding: var(--espaciado-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: var(--tamanio-pequeno);
+    color: var(--color-texto-principal);
+    transition: background-color var(--transicion-rapida);
+}
+
+/* =====================================================================
+     1. HEADERS FIJOS (TOP STICKY)
+     ===================================================================== */
+.grid-header {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    background-color: var(--color-primario);
+    color: #000000 !important;
+    font-weight: 900 !important;
+    font-family: var(--fuente-titulos);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: none;
+}
+
+/* =====================================================================
+     2. COLUMNA DE DISCIPLINAS FIJA (LEFT STICKY)
+     ===================================================================== */
+.col-sticky {
+    position: sticky;
+    left: 0;
+    z-index: 20 !important;
+    background-color: #050505 !important;
+    /* Sólido estricto para no transparentar el texto de abajo */
+    font-weight: 600;
+    color: var(--color-blanco);
+    text-align: left;
+    align-items: flex-start;
+    padding-left: var(--espaciado-md);
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.6);
+    /* Profundidad sobre las celdas deslizantes */
+    border-right: none;
+}
+
+/* La esquina Intersection (Top Left) debe estar por encima de los dos ejes */
+.grid-header.col-sticky {
+    color: #ffffff !important;
+    background-color: #050505 !important;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    z-index: 30 !important;
+    /* Asegura que esté por encima de todo */
+}
+
+/* =====================================================================
+     3. DISEÑO ZEBRADO PREMIUM PARA LAS FILAS (Vía CSS Modules JS)
+     ===================================================================== */
+/* Aunque usaremos CSS Grid, emularemos un efecto Zebrado (filas pares/impares)
+     agregando clases lógicas desde JS a las células según su índice de fila. */
+.row-even {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.row-odd {
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Ligeramente más claro */
+}
+
+/* Hover general sobre cualquier celda interactiva */
+.grid-cell:not(.grid-header):not(.col-sticky):hover {
+    background-color: rgba(242, 238, 51, 0.25) !important;
+}
+
+/* =====================================================================
+     4. BADGE/ETIQUETAS VISUALES OBLIGATORIAS
+     ===================================================================== */
+.horario-item {
+    margin-bottom: 4px;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.horario-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Estilos específicos pedidos explícitamente */
+.text-danger {
+    color: #ff5252;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.text-info {
+    color: #4fc3f7;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+/* Força a palavra DISCIPLINAS a ficar branca */
+.grid-header.col-sticky,
+.grid-header:first-child {
+    color: #ffffff !important;
+    z-index: 40 !important;
+}

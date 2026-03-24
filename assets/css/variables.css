@@ -1,0 +1,88 @@
+/* =========================================================================
+   VARIABLES GLOBALES (Diseño Premium & CRO) - Central Training Murcia
+   ========================================================================= */
+
+:root {
+   /* =====================================================================
+       1. COLORES DE MARCA (BRANDING)
+       ===================================================================== */
+
+   /* Colores Primarios (Fenriz Style Brutalista) */
+   --color-primario: #F2EE33;
+   /* Amarillo Eléctrico */
+   --color-primario-hover: #e6e22c;
+   /* Amarillo ligeramente más oscuro/opaco */
+
+   /* Colores Neutros (Elegancia, Contraste, Lectura) */
+   --color-blanco: #ffffff;
+   --color-negro: #0a0a0a;
+   /* Negro profundo para fondos premium */
+   --color-gris-oscuro: #1c1c1c;
+   /* Superficies secundarias oscuras */
+   --color-gris-claro: #f5f5f5;
+   /* Fondos claros si se requieren */
+   --color-texto-principal: #e0e0e0;
+   /* Texto principal en modo oscuro */
+   --color-texto-secundario: #9e9e9e;
+   /* Texto descriptivo en modo oscuro */
+
+   /* =====================================================================
+       2. TIPOGRAFÍA (MODERNA Y LEGIBLE)
+       Importamos las fuentes en global.css, aquí definimos su uso.
+       ===================================================================== */
+   --fuente-titulos: 'Bebas Neue', sans-serif !important;
+   /* Fuerte, alta, condensada, perfecta para Brutalismo Frontal */
+   --fuente-texto: 'Inter', 'Roboto', sans-serif;
+   /* Limpia, alta legibilidad para detalles y UI */
+
+   /* Escala Tipográfica (Mobile First - Fluid Typography o rems) */
+   --tamanio-texto-base: 16px;
+   /* Relativo al 100% del navegador (accesibilidad) */
+   --tamanio-h1: clamp(3.5rem, 8vw + 1rem, 6rem);
+   /* Más titánico para Bebas Neue */
+   --tamanio-h2: clamp(2.5rem, 5vw + 1rem, 4rem);
+   --tamanio-h3: clamp(2rem, 4vw + 0.5rem, 3rem);
+   --tamanio-p: 1rem;
+   --tamanio-pequeno: 0.875rem;
+   --espaciado-letras-titulos: 1px;
+   /* Global Letter Spacing para Títulos condensados */
+
+   /* =====================================================================
+       3. ESPACIADO (SPACING & GRID SYSTEM)
+       Utilizando múltiplos de 8px (0.5rem) para consistencia de diseño.
+       ===================================================================== */
+   --espaciado-xs: 0.5rem;
+   /* 8px */
+   --espaciado-sm: 1rem;
+   /* 16px */
+   --espaciado-md: 1.5rem;
+   /* 24px */
+   --espaciado-lg: 2rem;
+   /* 32px */
+   --espaciado-xl: 3rem;
+   /* 48px */
+   --espaciado-xxl: 5rem;
+   /* 80px */
+
+   /* =====================================================================
+       4. ELEVACIÓN Y Z-INDEX (CONTROL DE CAPAS)
+       ===================================================================== */
+   --z-index-fondo: -1;
+   --z-index-base: 1;
+   --z-index-flotante: 100;
+   --z-index-menu: 500;
+   --z-index-modal: 1000;
+   /* Superposiciones máximas */
+
+   /* =====================================================================
+       5. BORDES, SOMBRAS Y TRANSICIONES (MICRO-INTERACCIONES)
+       ===================================================================== */
+   --radio-borde-boton: 4px;
+   --radio-borde-tarjeta: 12px;
+
+   --sombra-cta: 0 4px 14px rgba(242, 238, 51, 0.4);
+   --sombra-tarjeta: 0 8px 30px rgba(0, 0, 0, 0.5);
+
+   --transicion-rapida: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+   --transicion-suave: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}

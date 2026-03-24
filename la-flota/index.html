@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Viewport para Mobile-First absoluto -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>La Flota - Central Training Murcia | Artes Marciales</title>
+    <!-- Fuentes: Bebas Neue (Títulos) & Inter (Lectura) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <meta name="description"
+        content="Únete a la mejor academia de Artes Marciales en Murcia (La Flota). Especialistas en Brazilian Jiu-Jitsu, Jiu-Jitsu NoGi y MMA con más de 15 años de experiencia.">
+
+    <!-- Configuración PWA y Tema -->
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="manifest" href="../manifest.json">
+    <!-- (Sixtema de favicons pendiente de extraer/colocar logo.png) -->
+
+    <!-- Hojas de Estilo Base -->
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/landing.css">
+    <link rel="stylesheet" href="../assets/css/modals.css">
+    <link rel="stylesheet" href="../assets/css/horarios.css">
+</head>
+
+<body>
+
+    <!-- =========================================================================
+       CABECERA Y NAVEGACIÓN PRINCIPAL
+       ========================================================================= -->
+    <header class="site-header" id="header">
+        <a href="../index.html" aria-label="Volver al Portal Gateway">
+            <!-- Ruta correcta para el logo descargado: ajustado por el nivel del subdirectorio -->
+            <img src="../assets/img/logo.png" alt="Central Training Murcia" class="site-logo" loading="lazy">
+        </a>
+
+        <!-- Navegación "Menús Evolucionados" -->
+        <nav class="main-nav" aria-label="Navegación de Sede">
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#historia" class="nav-link">Nuestra Historia</a>
+            <a href="#modalidades" class="nav-link">Disciplinas</a>
+            <a href="#horarios" class="nav-link">Horarios</a>
+            <a href="#tablon" class="nav-link">Tablón</a>
+            <a href="#equipo" class="nav-link">El Equipo</a>
+            <a href="#instalaciones" class="nav-link">Instalaciones</a>
+            <a href="#contacto" class="nav-link">Contacto</a>
+            <a href="#tienda" class="nav-link">Tienda <span class="nav-badge">[Próximamente]</span></a>
+        </nav>
+    </header>
+
+    <!-- =========================================================================
+       HERO SECTION (Atención)
+       ========================================================================= -->
+    <section class="hero-section" id="inicio">
+        <!-- Video Autoplay (Sin sonido, en bucle y permitiendo carga inline) -->
+        <video class="hero-video" autoplay loop muted playsinline poster="../assets/img/hero-fallback.jpg">
+            <source src="../assets/video/hero-ct.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content container">
+            <!-- Hero Desnudo - Cero textos según indicación Brutalista -->
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       NUESTRA HISTORIA
+       ========================================================================= -->
+    <section class="section-historia" id="historia">
+        <div class="container">
+            <div class="historia-content">
+                <div class="historia-grid">
+                    <div class="historia-text">
+                        <h2>Nuestra Historia</h2>
+                        <p>Central Training es más que una simple escuela de artes marciales; es un centro integral
+                            dedicado a
+                            promover un bienestar completo a través de una variedad de disciplinas que buscan mejorar la
+                            salud
+                            mental, física y las habilidades de autodefensa de sus miembros. Nuestra filosofía se centra
+                            en el
+                            desarrollo holístico del individuo, ofreciendo un camino hacia una vida más plena y
+                            saludable.</p>
+                        <p>La historia de Central Training comienza en el año 2007, marcando el inicio de nuestra misión
+                            con la
+                            apertura de nuestra primera escuela dedicada exclusivamente al Brazilian Jiu-Jitsu (BJJ).
+                            Esta
+                            disciplina, conocida por sus técnicas de agarre y control en el suelo, fue la base sobre la
+                            cual se
+                            construyó nuestro compromiso con la excelencia en las artes marciales.</p>
+                        <p>Diez años más tarde, en 2017, se inauguró Central Training Murcia, ampliando nuestras
+                            instalaciones y
+                            oferta educativa. En este nuevo espacio, se sumaron un diverso cuadro de maestros y
+                            profesores
+                            especializados en distintas disciplinas marciales y entrenamientos funcionales, permitiendo
+                            así un
+                            enfoque más completo en el desarrollo de nuestros socios y alumnos.</p>
+                        <p>A lo largo de más de 15 años, hemos tenido el privilegio de acompañar a nuestros socios y
+                            alumnos en
+                            su camino hacia una mejor calidad de vida. Nuestra pasión por lo que hacemos se refleja en
+                            cada
+                            clase, taller y sesión de entrenamiento que ofrecemos. La satisfacción y los logros de
+                            nuestros
+                            miembros son el testimonio del impacto positivo que Central Training ha logrado generar en
+                            la
+                            comunidad.</p>
+                    </div>
+                    <div class="historia-img-wrapper">
+                        <!-- Placeholder/Imagen brutalista -->
+                        <img src="../assets/img/historia-ct.jpg" alt="Instalaciones de Central Training Murcia"
+                            loading="lazy" onerror="this.src='../assets/img/hero-fallback.jpg'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       GRID DE MODALIDADES (Interés)
+       *Nota de negocio: "Grappling" ha sido sustituido globalmente a "Jiu-Jitsu NoGi".
+       ========================================================================= -->
+    <section class="section-modalidades" id="modalidades">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>NUESTRAS DISCIPLINAS</h2>
+                <p>Descubre el arte marcial perfecto para ti. Desde principiantes hasta competidores avanzados.</p>
+            </div>
+
+            <div class="grid-modalidades">
+
+                <!-- Tarjeta 1: BJJ Gi -->
+                <article class="card-modalidad" tabindex="0" data-target="modal-disciplina" data-disciplina="bjj">
+                    <img src="../assets/img/BRAZILIAN-Jiujitsu.png" alt="Fondo BJJ" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Brazilian Jiu-Jitsu (BJJ)</h3>
+                        <p class="card-desc">Arte marcial centrado en el combate en el suelo, utilizando técnicas de
+                            agarre, control y sumisión para neutralizar al oponente usando la técnica y la estrategia en
+                            lugar de la fuerza bruta.</p>
+                        <span class="card-action">Ver Detalles <span aria-hidden="true">→</span></span>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 2: Jiu-Jitsu NoGi (Originalmente Grappling) -->
+                <article class="card-modalidad" tabindex="0" data-target="modal-disciplina" data-disciplina="nogi">
+                    <img src="../assets/img/NO-GI.png" alt="Fondo Jiu-Jitsu NoGi" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Jiu-Jitsu NoGi</h3>
+                        <p class="card-desc">Disciplina sin kimono que combina derribos, agarres y sumisiones para
+                            controlar al adversario. Se enfoca intensamente en la técnica y la posición dominante, ideal
+                            para competición o defensa personal realista.</p>
+                        <span class="card-action">Ver Detalles <span aria-hidden="true">→</span></span>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 3: MMA -->
+                <article class="card-modalidad" tabindex="0" data-target="modal-disciplina" data-disciplina="mma">
+                    <img src="../assets/img/MMA_ct.png" alt="Fondo MMA" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">MMA</h3>
+                        <p class="card-desc">Sistema de combate completo que integra las mejores técnicas de golpeo y
+                            agarre. Ofrece una experiencia versátil, eficaz y moderna para acondicionamiento físico y
+                            autodefensa.</p>
+                        <span class="card-action">Ver Detalles <span aria-hidden="true">→</span></span>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 4: BJJ Kids -->
+                <article class="card-modalidad" tabindex="0" data-target="modal-disciplina" data-disciplina="kids">
+                    <img src="../assets/img/kids.png" alt="Fondo Kids" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">BJJ Infantil</h3>
+                        <p class="card-desc">Desarrollo infantil a través de las artes marciales. Fomentamos valores,
+                            disciplina, respeto y coordinación motora desde edades tempranas.</p>
+                        <span class="card-action">Ver Detalles <span aria-hidden="true">→</span></span>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 5: Capoeira -->
+                <article class="card-modalidad" tabindex="0" data-target="modal-disciplina" data-disciplina="capoeira">
+                    <img src="../assets/img/capoeira.png" alt="Fondo Capoeira" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Capoeira</h3>
+                        <p class="card-desc">Arte marcial afro-brasileño que combina facetas de danza, música y
+                            acrobacias, así como expresión corporal. Favorece la fuerza, elasticidad muscular y ritmo.
+                        </p>
+                        <span class="card-action">Ver Detalles <span aria-hidden="true">→</span></span>
+                    </div>
+                </article>
+
+                <!-- NUEVA Tarjeta 6: Judo -->
+                <article class="card-modalidad" tabindex="0" data-target="modal-disciplina" data-disciplina="judo">
+                    <img src="../assets/img/judo.png" alt="Fondo Judo" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Judo</h3>
+                        <p class="card-desc">Arte marcial japonés basado en proyecciones, derribos y control en suelo,
+                            ideal para aprender disciplina, equilibrio, técnica y respeto mientras se desarrolla la
+                            fuerza y agilidad.</p>
+                        <span class="card-action">Ver Detalles <span aria-hidden="true">→</span></span>
+                    </div>
+                </article>
+
+                <!-- NUEVA Tarjeta 7: Kick Boxing -->
+                <article class="card-modalidad" tabindex="0" data-target="modal-disciplina"
+                    data-disciplina="kickboxing">
+                    <img src="../assets/img/Kick-Boxing.png" alt="Fondo Kick Boxing" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Kick Boxing</h3>
+                        <p class="card-desc">Deporte de combate dinámico que combina puños y patadas, mejora la
+                            condición física, la coordinación y los reflejos, además de ser una herramienta eficaz para
+                            autodefensa.</p>
+                        <span class="card-action">Ver Detalles <span aria-hidden="true">→</span></span>
+                    </div>
+                </article>
+
+                <!-- NUEVA Tarjeta 8: Muay Thai -->
+                <article class="card-modalidad" tabindex="0" data-target="modal-disciplina" data-disciplina="muaythai">
+                    <img src="../assets/img/MuayThai.png" alt="Fondo Muay Thai" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Muay Thai</h3>
+                        <p class="card-desc">Arte marcial tailandés que utiliza puños, codos, rodillas y piernas en
+                            potentes combinaciones, ideal para desarrollar fuerza, resistencia, coordinación y defensa
+                            personal.</p>
+                        <span class="card-action">Ver Detalles <span aria-hidden="true">→</span></span>
+                    </div>
+                </article>
+
+                <!-- NUEVA Tarjeta 9: Kempo -->
+                <article class="card-modalidad" tabindex="0" data-target="modal-disciplina" data-disciplina="kempo">
+                    <img src="../assets/img/kempo.png" alt="Fondo Kempo" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Kempo</h3>
+                        <p class="card-desc">Sistema híbrido de defensa personal que combina técnicas de puños, patadas
+                            y bloqueos con movimientos fluidos y rápidos, ideal para mejorar reflejos y confianza.</p>
+                        <span class="card-action">Ver Detalles <span aria-hidden="true">→</span></span>
+                    </div>
+                </article>
+
+                <!-- NUEVA Tarjeta 10: Boxeo -->
+                <article class="card-modalidad" tabindex="0" data-target="modal-disciplina" data-disciplina="boxeo">
+                    <img src="../assets/img/MuayThai.png" alt="Fondo Boxeo" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Boxeo</h3>
+                        <p class="card-desc">Deporte de combate basado en puños, desplazamientos y defensa, perfecto
+                            para aumentar fuerza, resistencia, coordinación y reflejos, además de ser un gran
+                            entrenamiento cardiovascular.</p>
+                        <span class="card-action">Ver Detalles <span aria-hidden="true">→</span></span>
+                    </div>
+                </article>
+
+                <!-- NUEVA Tarjeta 11: Defensa Personal -->
+                <article class="card-modalidad" tabindex="0" data-target="modal-disciplina"
+                    data-disciplina="defensapersonal">
+                    <img src="../assets/img/defensa-personal.png" alt="Fondo Defensa Personal" class="bg-image"
+                        loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Defensa Personal</h3>
+                        <p class="card-desc">Conjunto de técnicas simples y efectivas para protegerte en situaciones
+                            reales, enseñando a reaccionar con seguridad y confianza frente a posibles agresiones.</p>
+                        <span class="card-action">Ver Detalles <span aria-hidden="true">→</span></span>
+                    </div>
+                </article>
+
+                <!-- NUEVA Tarjeta 12: Lucha -->
+                <article class="card-modalidad" tabindex="0" data-target="modal-disciplina" data-disciplina="lucha">
+                    <img src="../assets/img/lucha.png" alt="Fondo Lucha" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Lucha</h3>
+                        <p class="card-desc">La lucha grecorromana es un deporte de combate en el que los participantes
+                            intentan derribar al oponente utilizando solo la parte superior del cuerpo y técnicas de
+                            agarre y proyección.</p>
+                        <span class="card-action">Ver Detalles <span aria-hidden="true">→</span></span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- =========================================================================
+       HORARIOS (Acción - Contenedor Tabla Dinámica)
+       ========================================================================= -->
+    <section id="horarios" style="padding: var(--espaciado-xxl) 0; text-align: center; background: var(--color-negro);">
+        <div class="container">
+            <h2 style="color: var(--color-primario);">Horarios de Entrenamiento</h2>
+            <p style="color: var(--color-texto-secundario); margin-bottom: var(--espaciado-lg);">Nuestros horarios se
+                sincronizan automáticamente. Clases desde las 07:00h de la mañana hasta las 22:00h de la noche.</p>
+
+            <!-- Contenedor vacío donde inyectaremos la tabla generada desde Google Sheets vía JS -->
+            <div id="horarios-table-container">
+                <div
+                    style="padding: 2rem; border: 1px dashed var(--color-gris-oscuro); border-radius: var(--radio-borde-tarjeta);">
+                    <p><em>[La tabla de horarios se cargará aquí vía JavaScript dinámico]</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       TABLÓN DE ANUNCIOS / EVENTOS
+       ========================================================================= -->
+    <section id="tablon" class="section-tablon">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tablón de Anuncios</h2>
+                <p>Novedades, seminarios y avisos importantes.</p>
+            </div>
+            <div class="grid-tablon">
+                <article class="card-tablon">
+                    <span class="tablon-fecha">Próximamente</span>
+                    <h3 class="tablon-titulo">Seminario BJJ Especial</h3>
+                    <p class="tablon-desc">Únete a nuestro seminario intensivo con invitados especiales. Plazas
+                        limitadas.</p>
+                </article>
+                <article class="card-tablon aviso">
+                    <span class="tablon-fecha">Aviso</span>
+                    <h3 class="tablon-titulo">Aviso de Festivo</h3>
+                    <p class="tablon-desc">El próximo festivo nacional el gimnasio abrirá solo en horario de mañana
+                        (09:00 a 14:00).</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       EL EQUIPO (Profesores)
+       ========================================================================= -->
+    <section class="section-equipo" id="equipo">
+        <div class="container">
+            <div class="section-title">
+                <h2>El Equipo</h2>
+                <p>Aprende de los mejores profesionales. Pioneros y especialistas certificados a nivel internacional.
+                </p>
+            </div>
+
+            <div class="grid-equipo">
+                <!-- Profesor 1: Rafa -->
+                <article class="card-profesor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-rafa.png" alt="Rafael Dos Santos" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Rafael Dos Santos</h3>
+                        <span class="profesor-cargo">Head Coach / Fundador</span>
+                        <p class="profesor-desc">Black Belt BJJ, profesor de educación física, graduado en capoeira, y
+                            pionero en el jiujitsu brasileño en la región de Murcia. Amplia experiencia como Arbitro,
+                            profesor y competidor. Reconocido por las federaciones IBJJF, FIJJD Y CBJJ.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 2: Serjão -->
+                <article class="card-profesor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-sergio.png" alt="Sergio Corradi" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Sergio Corradi</h3>
+                        <span class="profesor-cargo">Fundador / Profesor de Jiu-Jitsu & Jiu-Jitsu NoGi</span>
+                        <p class="profesor-desc">Black Belt BJJ, Brow Belt en JUDO, Entrenador Nacional de Grapling.
+                            Actuación como árbitro y competidor en los campeonatos y copas de mayor relevancia en el
+                            escenario nacional. Reconocido por las federaciones FIJJD, IBJJF, y CBJJ.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 3: Mauricio -->
+                <article class="card-profesor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-mauricio.png" alt="Mauricio Gasparetto" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Mauricio Gasparetto</h3>
+                        <span class="profesor-cargo">Profesor de Jiu-Jitsu & Jiu-Jitsu NoGi</span>
+                        <p class="profesor-desc">Con más de 20 años de experiencia en Jiu-Jitsu Brasileño, comenzó a los
+                            16 años y ha competido en diversos campeonatos, siendo reconocido por las principales
+                            federaciones a nivel mundial.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 4: Victor -->
+                <article class="card-profesor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/capoeira.png" alt="Victor Nichida" class="profesor-foto" loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Victor Nichida</h3>
+                        <span class="profesor-cargo">Profesor de Capoeira</span>
+                        <p class="profesor-desc">Especializado en la fusión de acrobacias, rítmica afrobrasileña,
+                            agilidad y autodefensa.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 5: Cristovão -->
+                <article class="card-profesor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-cristovao.png" alt="Cristovão da Saliva" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Cristovão da Saliva</h3>
+                        <span class="profesor-cargo">Coach de Boxeo y Cinturón Negro BJJ</span>
+                        <p class="profesor-desc">Con mas de 30 años de experiencia en las artes marciales. Cinturón
+                            negro por la federación Brasileña y internacional (Paradnoy Muay Thai), coach de Boxeo y
+                            cinturón negro en Brazilian jiujitsu.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 6: Sabina -->
+                <article class="card-profesor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-sabina.png" alt="Sabina Gómez" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Sabina Gómez</h3>
+                        <span class="profesor-cargo">Profesora de Entrenamiento Funcional y Zumba</span>
+                        <p class="profesor-desc">Técnico superior en fitness y entrenamiento personal, estudiante de
+                            nutrición. Profesora de entrenamiento funcional, flexibilidad y Zumba, además de competidora
+                            activa en Jiu-Jitsu Brasileño (BJJ).</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 7: Hobnil -->
+                <article class="card-profesor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-hobnil.png" alt="Hobnil Sánchez" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Hobnil Sánchez</h3>
+                        <span class="profesor-cargo">Profesor de BJJ</span>
+                        <p class="profesor-desc">Cinturón negro y profesor de Jiu-Jitsu Brasileño en JA Murcia. Ha
+                            participado en varios campeonatos bajo la FIJJD, logrando medallas en categorías de kimono y
+                            NO-GI.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 8: Anthony -->
+                <article class="card-profesor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-anthony.png" alt="Anthony Satizelle" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Anthony Satizelle</h3>
+                        <span class="profesor-cargo">Entrenador de Judo</span>
+                        <p class="profesor-desc">Profesor y entrenador de Judo con 30 años de experiencia y 3er Dan.
+                            Máster en optimización del rendimiento deportivo, Técnico Deportivo Nivel 2 y especializado
+                            en preparación física y mental.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 9: Yoli -->
+                <article class="card-profesor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-yoli.png" alt="Yoli Martinez" class="profesor-foto" loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Yoli Martinez</h3>
+                        <span class="profesor-cargo">Instructora de Artes Marciales</span>
+                        <p class="profesor-desc">Practicante de artes marciales desde los 6 años, Black belt en Kenpo
+                            karate, Brown belt karate goju-ryu. Competidora en copas de relevancia en ámbito nacional.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Profesor 10: Ale -->
+                <article class="card-profesor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-alejandro.png" alt="Alejandro Contreras" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Alejandro Contreras (Ale)</h3>
+                        <span class="profesor-cargo">Entrenador y Competidor</span>
+                        <p class="profesor-desc">Competidor en actividad, experiencia en distintas artes marciales como
+                            Judo, Boxeo, lucha, Grappling y KickBoxing. Participación en varias competiciones logrando
+                            títulos de gran relevancia.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 11: Guillermo -->
+                <article class="card-profesor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-guillermo.png" alt="Guillermo Orozco" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Guillermo Orozco</h3>
+                        <span class="profesor-cargo">Instructor FEKM de Alto Rendimiento</span>
+                        <p class="profesor-desc">Campeón de España FEKM Cinturón negro 2°grado CAFD y master alto
+                            rendimiento. Competidor en activo a nivel nacional e internacional. Miembro del equipo
+                            nacional.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 12: Juan -->
+                <article class="card-profesor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-heredia.png" alt="Juan Heredia" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Juan Heredia</h3>
+                        <span class="profesor-cargo">Instructor de Lucha y Judo</span>
+                        <p class="profesor-desc">Cinturón negro en Judo, miembro de la selección española senior de
+                            Lucha. Conquistó medallas y títulos de gran relevancia en el panorama nacional e
+                            internacional en modalidades de Greco Romana, Lucha y Grappling.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       INSTALACIONES (Galería Mosaico)
+       ========================================================================= -->
+    <section class="section-instalaciones" id="instalaciones">
+        <div class="container">
+            <div class="section-title">
+                <h2>Instalaciones de Primer Nivel</h2>
+                <p>Un espacio diseñado exclusivamente para el máximo rendimiento y confort de nuestros atletas.</p>
+            </div>
+
+            <div class="mosaico-galeria">
+                <div class="mosaico-item featured">
+                    <img src="../assets/img/BRAZILIAN-Jiujitsu.png" alt="Tatami principal" class="mosaico-img"
+                        loading="lazy">
+                </div>
+                <div class="mosaico-item">
+                    <img src="../assets/img/placeholder.png" alt="Zona de entrenamiento" class="mosaico-img"
+                        loading="lazy">
+                </div>
+                <div class="mosaico-item">
+                    <img src="../assets/img/placeholder.png" alt="Equipamiento" class="mosaico-img" loading="lazy">
+                </div>
+                <div class="mosaico-item">
+                    <img src="../assets/img/placeholder.png" alt="Área de descanso" class="mosaico-img" loading="lazy">
+                </div>
+                <div class="mosaico-item">
+                    <img src="../assets/img/placeholder.png" alt="Vestuarios" class="mosaico-img" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       SOCIAL PROOF (Deseo - 5 Estrellas Google & Testimonios)
+       ========================================================================= -->
+    <section class="section-autoridad" id="testimonios">
+        <div class="container">
+            <div class="autoridad-resumen">
+                <div class="estrellas" aria-label="Valoración 5 de 5 estrellas">★★★★★</div>
+                <h3>Excelencia Valorada por Nuestros Alumnos</h3>
+                <p>Promedio de <strong>5.0 Estrellas</strong> en Google basado en más de 118 reseñas reales.</p>
+            </div>
+            <div class="grid-testimonios">
+                <article class="testimonio-card">
+                    <p class="testimonio-texto">"El mejor gimnasio de artes marciales de Murcia. Se respira respeto y
+                        disciplina desde el primer día."</p>
+                    <p class="testimonio-autor">— Carlos Pérez</p>
+                </article>
+                <article class="testimonio-card">
+                    <p class="testimonio-texto">"Escuela 10 en instalaciones y todo. Los profesores son de 10, estoy muy
+                        orgulloso de pertenecer a la escuela."</p>
+                    <p class="testimonio-autor">— Raul Garcia</p>
+                </article>
+                <article class="testimonio-card">
+                    <p class="testimonio-texto">"...La calidad de esta COMUNIDAD DE ARTES MARCIALES no solo se mide por
+                        el excelente equipo de profesionales, sino por el respeto, los valores que transmiten y el
+                        ambiente increíble de compañeros y hermanos."</p>
+                    <p class="testimonio-autor">— Pablo Molina</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       UBICACIÓN Y CONTACTO
+       ========================================================================= -->
+    <section id="contacto" class="section-contacto">
+        <div class="contacto-grid">
+            <div class="contacto-info">
+                <h2>UBICACIÓN Y CONTACTO</h2>
+                <p class="contacto-desc">Da el primer paso. Reserva tu <strong>clase de prueba gratuita</strong>,
+                    resuelve tus dudas o ven a conocer nuestras instalaciones. Nuestro equipo de maestros está listo
+                    para guiarte en el tatami.</p>
+                <div class="contacto-actions">
+                    <a href="https://wa.me/34633882718?text=Hola,%20quiero%20reservar%20mi%20clase%20de%20prueba%20gratuita."
+                        target="_blank" class="btn-action primary">Reservar Clase Gratis</a>
+                    <a href="mailto:info@centraltrainingmurcia.com" class="btn-action secondary">Envíanos un Email</a>
+                </div>
+            </div>
+            <div class="contacto-mapa">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1571.2721832049298!2d-1.1218599420042738!3d38.001642999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6382101e4a2fc5%3A0xb30de4dae19194e4!2sCentral%20Training%20Murcia!5e0!3m2!1ses!2ses!4v1714479532551!5m2!1ses!2ses"
+                    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" title="Mapa de ubicación Sede La Flota"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       FOOTER & UBICACIÓN LOCAL
+       ========================================================================= -->
+    <footer class="site-footer">
+        <div class="footer-logo-wrapper">
+            <img src="../assets/img/logo.png" alt="Central Training Murcia" class="footer-logo">
+        </div>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>DIRECCIÓN</h4>
+                <p>Central Training Murcia<br>C. Cuatro Caminos, nº 74<br>30007 Zarandona, Murcia</p>
+            </div>
+            <div class="footer-col">
+                <h4>HORARIOS</h4>
+                <p>Lunes - Viernes: <strong>07:00 - 22:00</strong><br>Sábados: <strong>11:00 - 13:30</strong></p>
+                <span class="badge-parking">
+                    Parking Gratuito Exclusivo para Alumnos
+                </span>
+            </div>
+            <div class="footer-col">
+                <h4>SÍGUENOS</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com/jiujitsu_murcia" target="_blank" class="social-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-instagram" viewBox="0 0 16 16" style="margin-right: 8px;">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                        </svg>
+                        @jiujitsu_murcia
+                    </a>
+                    <a href="https://instagram.com/murcia_bjj" target="_blank" class="social-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-instagram" viewBox="0 0 16 16" style="margin-right: 8px;">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                        </svg>
+                        @murcia_bjj
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Central Training Murcia. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- =========================================================================
+       BOTÓN FLOTANTE CTA (WhatsApp) - BADGE GIRATORIO
+       ========================================================================= -->
+    <a href="https://wa.me/34633882718?text=Hola,%20quiero%20probar%20una%20clase%20gratis%20en%20La%20Flota"
+        class="btn-whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+
+        <svg class="wa-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#25D366"
+            viewBox="0 0 16 16" style="position: relative; z-index: 2;">
+            <path
+                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+        </svg>
+
+        <svg class="rotating-text" viewBox="0 0 100 100"
+            style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; animation: spin 10s linear infinite;">
+            <path id="textPath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="transparent" />
+            <text font-family="var(--fuente-titulos)" fill="#ffffff" font-size="12" font-weight="400"
+                letter-spacing="2">
+                <textPath href="#textPath" startOffset="0%">ENTRAR AL TATAMI • ENTRAR AL TATAMI • </textPath>
+            </text>
+        </svg>
+    </a>
+
+    <!-- Controladores JS (Añadir posteriormente la lógica del Menú Solid on Scroll y Open Modals) -->
+    <script type="module" src="../assets/js/main.js" defer></script>
+    <script type="module" src="../assets/js/modals.js" defer></script>
+    <script type="module" src="../assets/js/horarios.js" defer></script>
+
+    <!-- =========================================================================
+       MODAL / BOTTOM SHEET (DISCIPLINAS)
+       ========================================================================= -->
+    <div id="modal-disciplina" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Cerrar modal">&times;</button>
+
+            <!-- Contenedor dinámico (JS inyectará contenido aquí) -->
+            <div class="modal-body">
+                <div class="modal-image-wrapper">
+                    <img src="" alt="Imagen Disciplina" class="modal-image" id="modal-img">
+                </div>
+                <h3 id="modal-title" class="modal-title"></h3>
+                <p id="modal-desc" class="modal-desc"></p>
+
+                <a href="#" id="modal-cta" class="btn-cta modal-cta" target="_blank" rel="noopener">
+                    Probar esta clase
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
