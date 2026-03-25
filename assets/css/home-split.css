@@ -1,202 +1,167 @@
-/* =========================================================================
-   PORTAL GATEWAY (home-split.css) - Central Training Murcia
-   Estructura Mobile First "Dos Tarjetas" -> Desktop "Split Screen 50/50"
-   ========================================================================= */
-
-.gateway-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    width: 100%;
-    position: relative;
-    /* Evita scroll innecesario si algo sobresale ligeramente */
-    overflow: hidden;
+/* RESET BASE PARA EL PORTAL */
+body { 
+  background-color: #000;
+  background: radial-gradient(circle at center, #11110a 0%, #000000 80%);
+  color: #fff; 
+  margin: 0; 
+  min-height: 100vh; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-family: 'Inter', sans-serif; 
+  overflow-x: hidden; 
 }
 
-/* Logotipo Centrado Absoluto sobre las divisiones */
-.gateway-logo-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: var(--z-index-flotante);
-    width: clamp(100px, 15vw, 150px);
-    height: auto;
-    pointer-events: none;
-    /* Permite hacer clic a través del logo hacia cada lado */
-    transition: transform var(--transicion-suave);
+.gateway-minimal { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  padding: 2rem; 
+  width: 100%; 
+  max-width: 1200px; 
+  animation: fadeIn 1.5s ease; 
+  position: relative;
+  z-index: 1;
 }
 
-/* Lados individuales (Sedes) */
-.sede-panel {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: var(--espaciado-lg);
-    text-align: center;
-    text-decoration: none;
-    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s ease;
-    cursor: pointer;
-    overflow: hidden;
-    /* Vital para que el breathe no sobresalga */
+@keyframes fadeIn { 
+  from { opacity: 0; transform: translateY(20px); filter: blur(10px); } 
+  to { opacity: 1; transform: translateY(0); filter: blur(0); } 
 }
 
-/* Efecto de background vivo "Breathing" pseudo-elemento */
-@keyframes background-breathe {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+/* LETRERO TIPO EDIFICIO (Lockup Cinematográfico) */
+.brand-sign { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 1.5rem; /* Tight lockup */
+  margin-bottom: 2rem; 
+}
+.sign-text { 
+  font-family: 'Cinzel', serif !important; 
+  font-weight: 900 !important; 
+  font-size: 4.5rem; 
+  letter-spacing: -1px; /* Compresión elegante */
+  line-height: 1;
+  color: var(--color-primario, #f2ee33); 
+  text-transform: uppercase; 
+  text-shadow: 0 10px 30px rgba(0,0,0,0.8); 
+}
+.sign-logo { 
+  width: 170px; 
+  height: auto; 
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6)); 
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+.sign-logo:hover { 
+  transform: scale(1.08) rotate(2deg); 
 }
 
-.sede-panel::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background-size: cover;
-    background-position: center;
-    background-color: var(--color-negro);
-    animation: background-breathe 25s infinite ease-in-out;
+/* SUBTÍTULO MODALIDADES (Micro-Tipografía Enmarcada) */
+.brand-subtitle { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* Espacio para las líneas laterales */
+  font-family: 'Inter', sans-serif !important; 
+  font-size: 0.75rem !important; 
+  font-weight: 600 !important; 
+  letter-spacing: 6px !important; 
+  color: #777 !important; 
+  margin-bottom: 4rem !important; 
+  text-transform: uppercase !important; 
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8); 
+}
+.brand-subtitle::before,
+.brand-subtitle::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 40px;
+  background: rgba(255, 255, 255, 0.15);
 }
 
-/* Overlay oscuro para legibilidad (se levanta parcialmente en el hover de desktop) */
-.sede-panel::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    /* Fondo negro pesado para efecto esfumado/brutalista */
-    background-color: rgba(5, 5, 5, 0.85);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    z-index: 1;
-    transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+/* BOTONES DE SEDE (High Conversion & Ghost) */
+.gateway-actions { 
+  display: flex; 
+  gap: 1.5rem !important; 
+  justify-content: center; 
+  align-items: center; 
+}
+.btn-gateway { 
+  font-family: 'Inter', sans-serif; /* Usamos Inter para la UI premium en vez de Bebas */
+  font-weight: 600;
+  font-size: 1rem !important; 
+  letter-spacing: 1.5px !important; 
+  padding: 14px 34px !important; 
+  border-radius: 50px !important; 
+  max-width: 280px !important; 
+  width: 100% !important; 
+  margin: 0 auto !important; 
+  text-decoration: none; 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+  position: relative; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-transform: uppercase;
 }
 
-.sede-panel-content {
-    position: relative;
-    z-index: 2;
-    /* Por encima del overlay oscuro y del background */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--espaciado-xs);
-    max-width: 60%;
-    padding-inline: var(--espaciado-xl);
+/* Botón Protagonista: La Flota (Glow & Glassmorphism sutil) */
+.btn-gateway.primary { 
+  background-color: var(--color-primario, #f2ee33); /* Amarillo puro */
+  color: #000; 
+  border: none;
+  box-shadow: 0 0 30px rgba(242, 238, 51, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.5); 
+}
+.btn-gateway.primary:hover { 
+  transform: translateY(-3px) scale(1.02); 
+  box-shadow: 0 10px 40px rgba(242, 238, 51, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5); 
 }
 
-/* Diseño específico de cabeceras en el panel */
-.sede-panel h2 {
-    font-size: var(--tamanio-h2);
-    margin-bottom: 0;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+/* Botón Ultra-Minimalista: Ronda Sur (Ghost Button Fantasmal) */
+.btn-gateway.secondary { 
+  background-color: transparent; 
+  color: #888; 
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(5px);
+}
+.btn-gateway.secondary:hover { 
+  background-color: rgba(255, 255, 255, 0.05); 
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff; 
+  transform: translateY(-2px);
 }
 
-.sede-panel p {
-    font-size: var(--tamanio-p);
-    color: var(--color-texto-principal);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: var(--espaciado-md);
+/* BADGE PRÓXIMAMENTE (Swiss UI / iOS Native) */
+.badge-soon { 
+  position: absolute; 
+  top: -12px !important; 
+  right: -5px !important; 
+  background-color: #fff; 
+  color: #000; 
+  font-family: 'Inter', sans-serif; 
+  font-weight: 700; 
+  font-size: 0.6rem !important; 
+  letter-spacing: 0.5px;
+  padding: 4px 10px !important; 
+  border: none !important; 
+  border-radius: 6px !important; 
+  text-transform: uppercase; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.05); 
 }
 
-/* Falso Botón visual dentro de cada lado para guiar el clic (Mobile) */
-.sede-panel .btn-outline {
-    pointer-events: none;
-    /* Clic real es el propio panel <a> */
-}
-
-/* Fondos Temporales inyectados al pseudo elemento */
-.panel-flota::after {
-    background-color: #111;
-    background-image: url('../img/fachada-flota.jpg');
-    /* Podrá tener fallback */
-}
-
-.panel-ronda::after {
-    background-color: #222;
-    background-image: url('../img/fachada-ronda.jpg');
-    /* Podrá tener fallback */
-}
-
-/* =====================================================================
-     DESKTOP MEDIA QUERY (> 768px): DISEÑO SPLIT SCREEN (Pantalla Dividida)
-     ===================================================================== */
-@media (min-width: 768px) {
-    .gateway-container {
-        flex-direction: row;
-    }
-
-    .sede-panel {
-        /* Comienzan divididos en 50% cada uno */
-        flex: 1 1 50%;
-        height: 100vh;
-        /* Altura total de la ventana */
-    }
-
-    /* Efecto Hover Acordeón en Desktop */
-    .gateway-container:hover .sede-panel:hover {
-        flex: 1 1 60%;
-        /* El lado que se enfoca se expande dinámicamente */
-    }
-
-    .gateway-container:hover .sede-panel:not(:hover) {
-        flex: 1 1 40%;
-        /* El lado ignorado se encoge */
-    }
-
-    /* Alivianamos el degradado al hacer hover para revelar más color/fondo */
-    .sede-panel:hover::before {
-        background-color: rgba(5, 5, 5, 0.6);
-        backdrop-filter: blur(0px);
-        -webkit-backdrop-filter: blur(0px);
-    }
-
-    /* Pequeño movimiento del texto hacia arriba */
-    .sede-panel:hover .sede-panel-content {
-        transform: translateY(-10px);
-        transition: transform var(--transicion-suave);
-    }
-}
-
-/* Media Query intermedio para Logo */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .gateway-logo-wrapper {
-        transform: translate(-50%, -50%) scale(0.8);
-    }
-}
-
-/* Fix Mobile para logo y espaciados */
-@media (max-width: 768px) {
-    .gateway-logo-wrapper {
-        width: 100px !important;
-        height: 100px !important;
-    }
-
-    .gateway-logo-wrapper img,
-    .gateway-logo-wrapper svg {
-        flex-shrink: 0 !important;
-        object-fit: contain !important;
-        width: 100%;
-        height: 100%;
-    }
-
-    .sede-panel:first-child .sede-panel-content {
-        padding-bottom: 15vh;
-    }
-
-    .sede-panel:last-child .sede-panel-content {
-        padding-top: 15vh;
-    }
+/* RESPONSIVE MOBILE (APILAR ELEMENTOS) */
+@media (max-width: 992px) {
+  .brand-sign { flex-direction: column; gap: 0.5rem; }
+  .sign-text { font-size: 3.2rem !important; letter-spacing: 0px; }
+  .sign-logo { width: 140px !important; margin: 15px 0 !important; }
+  
+  .brand-subtitle { font-size: 0.65rem !important; line-height: 1.6 !important; letter-spacing: 3px !important; gap: 8px; }
+  .brand-subtitle::before, .brand-subtitle::after { width: 20px; } /* Líneas más cortas en móvil */
+  
+  .gateway-actions { flex-direction: column; width: 100%; gap: 1.5rem !important; }
+  .btn-gateway { width: 100%; padding: 14px 20px !important; max-width: 260px !important; font-size: 1rem !important; }
+  .badge-soon { right: 0px !important; }
 }

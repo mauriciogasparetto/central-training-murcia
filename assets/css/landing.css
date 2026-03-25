@@ -25,17 +25,39 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Redundante, pero se mantiene la clase para lógica JS si la había */
+/* Contenedor del logo para alinear milimétricamente con el menú */
+.site-header > a:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.site-logo {
+    height: 100px !important; /* Presencia Masiva */
+    width: auto !important;
+    object-fit: contain !important;
+    transform: scale(1.15); /* Expansión óptica contra márgenes transparentes del PNG */
+    transform-origin: left center; /* Para que crezca desde la izquierda sin pisar el menú */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+/* Micro-interacción Magnética (Hover State) */
+.site-logo:hover {
+    transform: scale(1.22); /* 1.15 original + .07 hover */
+    filter: drop-shadow(0px 4px 15px rgba(242, 238, 51, 0.5));
+}
+
+/* Adaptación al Scroll (Reducción del 15% para lujo y usabilidad) */
 .site-header.is-scrolled {
     background-color: rgba(5, 5, 5, 0.95) !important;
     backdrop-filter: blur(15px) !important;
     -webkit-backdrop-filter: blur(15px) !important;
 }
 
-.site-logo {
-    height: 48px;
-    width: auto;
-    object-fit: contain;
+.site-header.is-scrolled .site-logo {
+    height: 64px; /* Reducción on-scroll */
 }
 
 .main-nav {
@@ -433,52 +455,55 @@
 }
 
 .mosaico-galeria {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--espaciado-sm);
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: var(--espaciado-md) !important;
 }
 
 @media (min-width: 768px) {
     .mosaico-galeria {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        grid-auto-rows: 280px;
-        /* Altura base para forzar proporciones */
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
-.mosaico-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radio-borde-tarjeta);
-    box-shadow: var(--sombra-tarjeta);
-    height: 250px;
-    /* Base móvil */
-}
-
-@media (min-width: 768px) {
-    .mosaico-item {
-        height: auto;
-        /* Toma el grid-auto-rows en desktop */
-    }
-
-    /* Hacer que el primer elemento destaque como protagonista */
-    .mosaico-item.featured {
-        grid-column: span 2;
-        grid-row: span 2;
+@media (min-width: 992px) {
+    .mosaico-galeria {
+        grid-template-columns: repeat(3, 1fr) !important;
     }
 }
 
-.mosaico-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+/* La galería ahora utiliza internamente elementos .card-modalidad
+   para heredar matemáticamente las micro-interacciones de hover, 
+   Cinzel font, overlay fade y object-scale nativos del frontend. */
+
+/* OVERRIDES ESPECÍFICOS PARA INSTALACIONES (PROTAGONISMO DE FOTO) */
+/* 1. Apagar máscaras oscuras: Luz Total */
+#instalaciones .card-modalidad::before,
+#instalaciones .card-modalidad::after {
+    display: none !important;
+    opacity: 0 !important;
 }
 
-.mosaico-item:hover .mosaico-img {
-    transform: scale(1.05);
-    /* Efecto zoom interior lujoso */
+/* 2. Iluminación normal de la foto sin degradación de brillo */
+#instalaciones .card-modalidad .bg-image {
+    filter: brightness(1) !important;
+}
+
+/* 3. Hover Limpio: Zoom suave sin oscurecer (Bright 1x sostenido) */
+#instalaciones .card-modalidad:hover .bg-image,
+#instalaciones .card-modalidad:focus .bg-image {
+    transform: scale(1.05) !important;
+    filter: brightness(1) !important;
+}
+
+/* 4. Texto Minimalista: Sombra sólida contra fondos blancos en lugar de barras negras */
+#instalaciones .info-modalidad {
+    background: transparent !important;
+}
+
+#instalaciones .card-title {
+    color: var(--color-blanco) !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8) !important;
 }
 
 /* =====================================================================
@@ -525,27 +550,45 @@
 }
 
 .profesor-foto-wrapper {
-    width: 100%;
+    width: 65%; /* Proporcional a la tarjeta */
     aspect-ratio: 1 / 1;
-    /* Retrato 1:1 Cuadrado */
-    overflow: hidden;
+    margin: var(--espaciado-lg) auto 0; /* Centrado y padding superior */
+    padding: 0 !important; /* FULL BLEED: Ningún sangrado interno permitido */
+    border-radius: 50% !important; /* La máscara oficial */
+    overflow: hidden !important; /* CORTA lo que exceda el círculo */
     position: relative;
-    background-color: var(--color-negro);
-    /* Si la imagen no carga rápido */
+    background-color: #000000;
+    border: 2px solid var(--color-primario); /* Amarillo vibrante universal y estandarizado */
+    transition: all 0.4s ease;
+    /* Sombras apagadas en estado base */
+    box-shadow: none;
 }
 
 .profesor-foto {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease, filter 0.6s ease;
-    /* Efecto cinematográfico por defecto, revela color al hover */
-    filter: grayscale(80%) contrast(1.1);
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block;
+    object-fit: cover !important; /* Rellena el 100% de la máscara geométrica circular */
+    object-position: center !important; /* Forzar el centro absoluto para sangría perfecta */
+    border-radius: 50%; /* Fuerza segunda máscara puramente en la imagen */
+    /* OVERSCAN ZOOM BLEED: Empuja los espantosos aros blancos y negros fuera de los límites! */
+    transform: scale(1.25) !important; 
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.6s ease;
+    /* Efecto dark premium en reposo */
+    filter: brightness(0.7) grayscale(20%);
+}
+
+/* El "Efecto de Vida" - Hover superior en la card */
+.card-profesor:hover .profesor-foto-wrapper {
+    /* El anillo amarillo brilla cinéticamente */
+    filter: drop-shadow(0px 4px 10px rgba(242, 238, 51, 0.5));
 }
 
 .card-profesor:hover .profesor-foto {
-    transform: scale(1.05);
-    filter: grayscale(0%) contrast(1);
+    transform: scale(1.35) !important; /* Mantiene Overscan + popup interior */
+    filter: brightness(1) grayscale(0%); /* Cobra vida a pleno color y luz */
 }
 
 .profesor-info {
@@ -1020,9 +1063,16 @@
     }
 
     .site-logo {
-        height: 45px !important;
+        height: 70px !important; /* Escala proporcional para viewport estrecho */
         width: auto !important;
         flex-shrink: 0 !important;
+        transform: scale(1.1);
+        transform-origin: center center;
+    }
+
+    /* Reducción en scroll para liberar pantalla móvil */
+    .site-header.is-scrolled .site-logo {
+        height: 48px !important;
     }
 
     /* 2. Menu Swipe Estilo 'App Pills' (Muito mais elegante e legível) */

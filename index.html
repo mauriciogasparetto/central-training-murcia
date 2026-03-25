@@ -12,15 +12,14 @@
     content="Gimnasio de Artes Marciales y Cross Training en Murcia. Sedes en La Flota y Ronda Sur. Más de 25 años de experiencia. ¡Ven a probar tu primera clase gratis!">
 
   <!-- SEO & PWA Mínimo -->
-  <meta name="theme-color" content="#d32f2f">
+  <meta name="theme-color" content="#f2ee33">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 
-  <!-- Fuentes: Bebas Neue (Títulos) & Inter (Lectura) -->
+  <!-- Fuentes Premium: Cinzel (Títulos) & Inter (Lectura) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Carga de CSS Crítico (Variables, Reset Global, Split-Screen Layout) -->
   <link rel="stylesheet" href="assets/css/variables.css">
@@ -31,39 +30,21 @@
 
 <body>
 
-  <!-- =========================================================================
-       NAVEGACIÓN PRINCIPAL FLOTANTE (Menú Común para ambas sedes opcional aquí)
-       En este Index Portal puede estar oculta o mínima (Logo central).
-       ========================================================================= -->
-
-  <main class="gateway-container" aria-label="Selección de Sede Central Training Murcia">
-
-    <!-- LADO IZQUIERDO (Móvil: Top) - LA FLOTA -->
-    <a href="la-flota/index.html" class="sede-panel panel-flota" aria-label="Visitar sede La Flota de Artes Marciales">
-      <div class="sede-panel-content">
-        <h2>La Flota</h2>
-        <p>Artes Marciales &amp; Preparación Física</p>
-        <span class="btn-outline" aria-hidden="true">Entrar al Tatami</span>
-      </div>
-    </a>
-
-    <!-- LOGOTIPO CENTRAL (Z-Index alto, sin bloquear clics) -->
-    <div class="gateway-logo-wrapper">
-      <!-- Placeholder: Logo SVG blanco recomendado para fondo oscuro -->
-      <img src="assets/img/logo-central-training.png" alt="Logotipo Central Training Murcia" loading="eager" width="150"
-        height="150">
+  <main class="gateway-minimal" aria-label="Selección de Sede Central Training Murcia">
+    <div class="brand-sign">
+      <span class="sign-text">CENTRAL</span>
+      <img src="assets/img/logo-central-training.png" alt="Logo Central Training" class="sign-logo">
+      <span class="sign-text">TRAINING</span>
     </div>
 
-    <!-- LADO DERECHO (Móvil: Bottom) - RONDA SUR -->
-    <a href="ronda-sur/index.html" class="sede-panel panel-ronda"
-      aria-label="Visitar sede Ronda Sur de Artes Marciales y Cross Training">
-      <div class="sede-panel-content">
-        <h2>Ronda Sur</h2>
-        <p>Artes Marciales &amp; Preparación Física</p>
-        <span class="btn-outline" aria-hidden="true">Entrar al Tatami</span>
-      </div>
-    </a>
+    <div class="brand-subtitle">
+      ARTES MARCIALES &bull; CROSS TRAINING &bull; SALA DE MUSCULACIÓN
+    </div>
 
+    <div class="gateway-actions">
+      <a href="la-flota/index.html" class="btn-gateway primary">Sede La Flota</a>
+      <a href="ronda-sur/index.html" class="btn-gateway secondary">Sede Ronda Sur <span class="badge-soon">Próximamente</span></a>
+    </div>
   </main>
 
   <!-- Carga diferida de JS Global (Deferred) -->
