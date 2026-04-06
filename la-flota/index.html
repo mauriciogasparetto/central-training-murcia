@@ -19,8 +19,7 @@
     <!-- Configuración PWA y Tema -->
     <meta name="theme-color" content="#0a0a0a">
     <link rel="manifest" href="../manifest.json">
-    <!-- (Sixtema de favicons pendiente de extraer/colocar logo.png) -->
-
+    <link rel="icon" type="image/png" href="../assets/img/Logo circular limpo.png">
     <!-- Hojas de Estilo Base -->
     <link rel="stylesheet" href="../assets/css/variables.css">
     <link rel="stylesheet" href="../assets/css/global.css">
@@ -48,7 +47,7 @@
             <a href="#modalidades" class="nav-link">Disciplinas</a>
             <a href="#horarios" class="nav-link">Horarios</a>
             <a href="#tablon" class="nav-link">Tablón</a>
-            <a href="#equipo" class="nav-link">El Equipo</a>
+            <a href="#profesores" class="nav-link">PROFESORES</a>
             <a href="#instalaciones" class="nav-link">Instalaciones</a>
             <a href="#contacto" class="nav-link">Contacto</a>
             <a href="#tienda" class="nav-link">Tienda <span class="nav-badge">[Próximamente]</span></a>
@@ -333,12 +332,12 @@
     </section>
 
     <!-- =========================================================================
-       EL EQUIPO (Profesores)
+       PROFESORES
        ========================================================================= -->
-    <section class="section-equipo" id="equipo">
+    <section class="section-equipo" id="profesores">
         <div class="container">
             <div class="section-title">
-                <h2>El Equipo</h2>
+                <h2>PROFESORES</h2>
                 <p>Aprende de los mejores profesionales. Pioneros y especialistas certificados a nivel internacional.
                 </p>
             </div>
@@ -613,14 +612,46 @@
     </section>
 
     <!-- =========================================================================
+       UBICACIÓN Y CONTACTO
+       ========================================================================= -->
+    <section id="contacto" class="section-contacto">
+        <div class="contacto-grid">
+            <div class="contacto-info">
+                <h2>UBICACIÓN Y CONTACTO</h2>
+                <p class="contacto-desc">Da el primer paso. Reserva tu <strong>clase de prueba gratuita</strong>,
+                    resuelve tus dudas o ven a conocer nuestras instalaciones. Nuestro equipo de maestros está listo
+                    para guiarte en el tatami.</p>
+                <div class="contacto-actions">
+                    <a href="https://wa.me/34633882718?text=Hola,%20quiero%20reservar%20mi%20clase%20de%20prueba%20gratuita."
+                        target="_blank" class="btn-action primary">Reservar Clase Gratis</a>
+                    <a href="mailto:centraltrainingmurcia@gmail.com" class="btn-action secondary">Envíanos un Email</a>
+                </div>
+            </div>
+            <div class="contacto-mapa">
+                <iframe
+                    src="https://maps.google.com/maps?q=Central+Training+Murcia,+C.+Cuatro+Caminos,+74,+30007+Zarandona,+Murcia&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                    title="Mapa de ubicación Sede La Flota"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
        SOCIAL PROOF (Deseo - 5 Estrellas Google & Testimonios)
        ========================================================================= -->
     <section class="section-autoridad" id="testimonios">
         <div class="container">
             <div class="autoridad-resumen">
+                <!-- Google SVG Logo (Authority) -->
+                <svg class="google-reviews-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100" height="30">
+                    <path fill="#4285F4" d="M503.4 261.2c0-17.6-1.5-34.6-4.5-51H261.1v96.4h136.2c-5.8 31.3-23.6 57.8-50.6 75.8v63h81.9c48-44.2 74.8-109.2 74.8-184.2z"/>
+                    <path fill="#34A853" d="M261.1 508.4c68.1 0 125.4-22.6 167.3-61.1l-81.9-63c-22.6 15.1-51.6 24.1-85.4 24.1-65.7 0-121.4-44.4-141.2-104.1h-84.6v65.4c41.3 82.2 127.3 138.7 225.8 138.7z"/>
+                    <path fill="#FBBC05" d="M119.9 304.3c-5.1-15.1-8-31.3-8-48.3s2.9-33.2 8-48.3v-65.4h-84.6C15.3 184.1 0 218.8 0 256s15.3 71.9 35.3 113.7l84.6-65.4z"/>
+                    <path fill="#EA4335" d="M261.1 103.6c37.1 0 70.4 12.8 96.6 38l72.4-72.4C386.4 26.6 329.1 0 261.1 0 162.6 0 76.6 56.5 35.3 138.7l84.6 65.4c19.8-59.7 75.5-100.5 141.2-100.5z"/>
+                </svg>
                 <div class="estrellas" aria-label="Valoración 5 de 5 estrellas">★★★★★</div>
                 <h3>Excelencia Valorada por Nuestros Alumnos</h3>
-                <p>Promedio de <strong>5.0 Estrellas</strong> en Google basado en más de 118 reseñas reales.</p>
+                <p class="reviews-subtitle">Promedio de <span id="google-rating" data-rating="5.0">5.0</span> Estrellas basado en <span id="google-count" data-count="170">+170</span> reseñas reales.</p>
             </div>
             <div class="grid-testimonios">
                 <article class="testimonio-card">
@@ -639,31 +670,6 @@
                         ambiente increíble de compañeros y hermanos."</p>
                     <p class="testimonio-autor">— Pablo Molina</p>
                 </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================================================
-       UBICACIÓN Y CONTACTO
-       ========================================================================= -->
-    <section id="contacto" class="section-contacto">
-        <div class="contacto-grid">
-            <div class="contacto-info">
-                <h2>UBICACIÓN Y CONTACTO</h2>
-                <p class="contacto-desc">Da el primer paso. Reserva tu <strong>clase de prueba gratuita</strong>,
-                    resuelve tus dudas o ven a conocer nuestras instalaciones. Nuestro equipo de maestros está listo
-                    para guiarte en el tatami.</p>
-                <div class="contacto-actions">
-                    <a href="https://wa.me/34633882718?text=Hola,%20quiero%20reservar%20mi%20clase%20de%20prueba%20gratuita."
-                        target="_blank" class="btn-action primary">Reservar Clase Gratis</a>
-                    <a href="mailto:info@centraltrainingmurcia.com" class="btn-action secondary">Envíanos un Email</a>
-                </div>
-            </div>
-            <div class="contacto-mapa">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1571.2721832049298!2d-1.1218599420042738!3d38.001642999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6382101e4a2fc5%3A0xb30de4dae19194e4!2sCentral%20Training%20Murcia!5e0!3m2!1ses!2ses!4v1714479532551!5m2!1ses!2ses"
-                    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade" title="Mapa de ubicación Sede La Flota"></iframe>
             </div>
         </div>
     </section>

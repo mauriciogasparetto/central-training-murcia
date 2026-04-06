@@ -1039,6 +1039,26 @@
     }
 }
 
+/* =====================================================================
+   SOCIAL PROOF GOOGLE REVIEWS
+   ===================================================================== */
+.google-reviews-logo {
+    height: 30px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.reviews-subtitle {
+    font-size: 1rem;
+    color: var(--color-gris-claro);
+    margin-top: 5px;
+}
+
+.reviews-subtitle span {
+    font-weight: 700;
+    color: var(--color-primario);
+}
+
 /* =========================================
    CORREÇÕES FORÇADAS MOBILE (MENU E LOGO)
    ========================================= */
@@ -1063,11 +1083,12 @@
     }
 
     .site-logo {
-        height: 70px !important; /* Escala proporcional para viewport estrecho */
-        width: auto !important;
+        height: 65px !important;
+        width: 65px !important;
+        object-fit: contain !important;
         flex-shrink: 0 !important;
         transform: scale(1.1);
-        transform-origin: center center;
+        transform-origin: left center;
     }
 
     /* Reducción en scroll para liberar pantalla móvil */
@@ -1082,6 +1103,8 @@
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
         justify-content: flex-start !important;
         align-items: center !important;
         gap: 1rem !important;
@@ -1093,20 +1116,20 @@
     .site-header nav.main-nav .nav-link {
         flex: 0 0 auto !important;
         white-space: nowrap !important;
-        font-size: 0.95rem !important;
-        padding: 8px 16px !important;
-        background-color: rgba(255, 255, 255, 0.08);
-        /* Fundo de 'Pílula' */
-        border-radius: 30px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.85rem !important;
+        letter-spacing: 1px !important;
+        padding: 5px 10px !important;
+        background-color: transparent !important;
+        border-radius: 0;
+        border: none !important;
         color: #fff !important;
     }
 
     .site-header nav.main-nav .nav-link:active,
     .site-header nav.main-nav .nav-link:hover {
-        background-color: var(--color-primario) !important;
-        color: #000 !important;
-        border-color: var(--color-primario) !important;
+        background-color: transparent !important;
+        color: var(--color-primario) !important;
+        border: none !important;
     }
 
     /* 3. Esconde a barra de rolagem feia do menu */
