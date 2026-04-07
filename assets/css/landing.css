@@ -198,7 +198,155 @@
 .hero-content .btn-outline-cta:hover {
     background-color: var(--color-primario);
     color: var(--color-negro);
-    transform: scale(1.05);
+    transform: scale(1.05); /* Zoom in for visual feedback */
+}
+
+/* =====================================================================
+   BACKGROUND GRID 2x2 (Kids Section)
+   ===================================================================== */
+.bg-grid-2x2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    z-index: 0;
+}
+
+.bg-grid-2x2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    filter: none;
+    transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.card-modalidad:hover .bg-grid-2x2 img {
+    opacity: 1;
+}
+
+/* =====================================================================
+   AVATAR STACK (Instructores en Tarjetas)
+   ===================================================================== */
+.avatar-stack {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    position: relative;
+    z-index: 5;
+}
+
+.avatar-stack-imgs {
+    display: flex;
+    align-items: center;
+    padding-left: 5px; /* Compensa el overcrop visual */
+}
+
+.avatar-stack img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    border: 2px solid #1a1a1a; /* Brutalist contour para separar al superponer */
+    margin-left: -12px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.2s ease, z-index 0.2s;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+}
+
+.avatar-stack img:first-child {
+    margin-left: 0;
+    z-index: 4;
+}
+.avatar-stack img:nth-child(2) { z-index: 3; }
+.avatar-stack img:nth-child(3) { z-index: 2; }
+.avatar-stack img:nth-child(4) { z-index: 1; }
+
+.avatar-stack img:hover {
+    transform: translateY(-5px) scale(1.15);
+    z-index: 10 !important;
+}
+
+.avatar-names {
+    margin-left: 12px;
+    font-size: 0.75rem;
+    color: var(--color-blanco);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+}
+
+a.avatar-stack-link {
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+}
+
+a.avatar-stack-link:hover .avatar-stack-imgs {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+
+a.avatar-stack-link:hover .avatar-names {
+    color: var(--color-primario);
+    transition: color 0.3s ease;
+}
+
+.grid-cell {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cell-avatar {
+    position: absolute !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 2px solid #1a1a1a !important;
+    bottom: 5px;
+    right: 5px;
+    z-index: 5 !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    filter: none !important;
+    opacity: 1 !important;
+    transition: transform 0.3s ease !important;
+}
+
+.card-modalidad[data-disciplina="kids"]:hover .cell-avatar {
+    transform: scale(1.15) !important;
+}
+
+.cell-nametag {
+    position: absolute;
+    bottom: 12px;
+    right: 42px;
+    font-family: var(--fuente-titulos);
+    font-size: 11px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+    z-index: 6;
+    pointer-events: none;
+}
+
+.card-modalidad[data-disciplina="kids"]:hover .cell-nametag {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* =====================================================================
@@ -215,7 +363,7 @@
 }
 
 .section-title h2 {
-    color: var(--color-primario);
+    color: #FFFFFF !important;
     margin-bottom: var(--espaciado-xs);
 }
 
@@ -273,17 +421,17 @@
     object-position: top center;
     z-index: 0;
     transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s ease;
-    filter: brightness(0.6);
-    /* Ligeramente oscuro por defecto */
+    filter: none;
+    /* Imagen cruda y clara por defecto */
 }
 
-/* Gradiente oscuro inferior interactivo */
+/* Gradiente oscuro inferior interactivo y protección superior para textos */
 .card-modalidad::before {
     content: '';
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+    background: transparent;
     transition: opacity 0.6s ease;
 }
 
@@ -294,7 +442,8 @@
     flex-direction: column;
     height: 100%;
     justify-content: flex-end;
-    /* Acomoda el texto abajo */
+    align-items: flex-start;
+    text-align: left;
 }
 
 .card-title {
@@ -305,9 +454,25 @@
     white-space: pre-wrap !important;
     color: var(--color-blanco);
     text-transform: uppercase;
-    margin-bottom: var(--espaciado-xs);
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 0 4px 6px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.9);
     transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.4s ease;
-    transform-origin: bottom left;
+    transform-origin: top left;
+    z-index: 100;
+}
+
+.card-title.title-kids {
+    color: #FFFFFF !important;
+    z-index: 110;
+    transition: color 0.3s ease;
+}
+
+.card-modalidad[data-disciplina="kids"]:hover .card-title.title-kids {
+    color: #ffff00 !important;
 }
 
 .card-desc {
@@ -317,6 +482,7 @@
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.9);
 }
 
 .card-action {
@@ -338,8 +504,28 @@
 .card-modalidad:hover .bg-image,
 .card-modalidad:focus .bg-image {
     transform: scale(1.1);
-    filter: brightness(0.2) blur(3px);
-    /* Oscurecimiento abrupto y blur */
+    filter: none;
+}
+
+/* Lógica de HOVER Universal: Efecto de "Foco" oscureciendo el pseudo-elemento overlay */
+.card-modalidad:hover::before,
+.card-modalidad:focus::before {
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Legibilidad Crítica: Sombreado en cualquier estado */
+.card-modalidad .card-title,
+.card-modalidad .cell-nametag,
+.card-modalidad .avatar-names,
+.card-modalidad .card-desc {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 1) !important;
+}
+
+/* Transición Amarilla Universal */
+.card-modalidad:hover .card-title,
+.card-modalidad:hover .cell-nametag,
+.card-modalidad:hover .avatar-names {
+    color: #ffff00 !important;
 }
 
 .card-modalidad:hover,
@@ -593,6 +779,8 @@
 
 .profesor-info {
     padding: var(--espaciado-lg) var(--espaciado-md);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .profesor-nombre {
@@ -600,12 +788,14 @@
     font-size: var(--tamanio-h4);
     color: var(--color-blanco);
     margin-bottom: 4px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
 }
 
 .profesor-cargo {
     color: var(--color-primario);
     font-size: 0.85rem;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: var(--espaciado-sm);
@@ -616,6 +806,7 @@
     font-size: var(--tamanio-pequeno);
     color: var(--color-texto-secundario);
     line-height: 1.5;
+    letter-spacing: 0.05em;
 }
 
 /* =====================================================================
@@ -668,7 +859,7 @@
 }
 
 .historia-text h2 {
-    color: var(--color-primario);
+    color: #FFFFFF !important;
     font-size: var(--tamanio-h2);
     margin-bottom: var(--espaciado-lg);
     text-transform: uppercase;
@@ -763,8 +954,8 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background-color: var(--color-negro) !important;
-    border: 2px solid var(--color-primario) !important;
+    background-color: #25D366 !important;
+    border: 2px solid #25D366 !important;
     border-radius: 50% !important;
     padding: 0 !important;
     width: 80px !important;
@@ -812,7 +1003,7 @@
 
 .contacto-info h2 {
     font-family: var(--fuente-titulos) !important;
-    color: var(--color-primario);
+    color: #FFFFFF !important;
     font-size: 3rem !important;
     margin-bottom: 1rem;
 }
@@ -1140,3 +1331,19 @@
 }
 
 /* A CAIXA MESTRA DO CELULAR FECHA AQUI - NUNCA ESQUEÇA DELA */
+
+.social-item svg {
+    color: #E1306C !important;
+}
+
+.link-resena {
+    display: inline-block;
+    margin-top: 10px;
+    color: #FFFFFF;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+.link-resena:hover {
+    color: var(--color-primario);
+}

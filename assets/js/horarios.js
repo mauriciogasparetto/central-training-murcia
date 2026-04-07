@@ -36,16 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             /* REGLA APLICADA: "DF. PERSONAL" cambiado a "Defensa Personal" y L/X añadidos 10:00 */
-            disciplina: "Defensa Personal",
+            disciplina: "DEFENSA PERSONAL",
             dias: ["10:00", "", "10:00", "", "", ""]
         },
         {
             disciplina: "ENTR. FUNCIONAL",
-            dias: ["", "", "", "", "", ""] // Vacío en la foto mostrada
+            dias: ["16:00", "", "16:00", "", "16:00", ""]
         },
         {
             disciplina: "MUAY THAI",
-            dias: ["10:00<br>21:00", "10:00<br>20:00<br>21:00", "21:00", "10:00<br>20:00<br>21:00", "", "Open Mat<br>11:00-13:30"]
+            dias: ["10:00<br>21:00", "10:00<br>20:00<br>21:00", "21:00", "10:00<br>20:00<br>21:00", "10:00", "Open Mat<br>11:00-13:30"]
         },
         {
             disciplina: "KICK BOXING",
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `10:00<br>11:00<br>12:00<br>17:00 Kids 2<br>${ini("18:00")}<br>19:00<br>20:00<br>21:00`,
                 `${nogi("11:00")}<br>${nogi("12:00")}<br>17:00 Kids 1<br>${nogi("20:00")}<br>Avanzados<br>${nogi("21:00")}`,
                 `${nogi("10:00")}<br>11:00<br>12:00<br>17:00 Kids 2<br>${ini("18:00")}<br>19:00<br>20:00<br>${nogi("21:00")}`,
-                "11:00<br>18:00<br>WRESTLING Y JUDO NOGI",
+                "11:00<br>18:00<br>LUCHA OLÍMPICA Y JUDO NOGI",
                 "Open Mat<br>11:00-13:30"
             ]
         },
