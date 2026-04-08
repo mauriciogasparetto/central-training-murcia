@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dias: ["", "11:00", "", "11:00", "", "Open Mat<br>11:00-13:30"]
         },
         {
-            disciplina: "KEMPO",
+            disciplina: "KEMPO-KARATE",
             dias: ["", "17:30", "", "17:30", "", ""]
         },
         {

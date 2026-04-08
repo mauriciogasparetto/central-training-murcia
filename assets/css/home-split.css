@@ -100,8 +100,10 @@ body {
   letter-spacing: 1.5px !important; 
   padding: 14px 34px !important; 
   border-radius: 50px !important; 
-  max-width: 280px !important; 
-  width: 100% !important; 
+  min-width: 320px !important;
+  max-width: 400px !important;
+  width: auto !important;
+  white-space: nowrap !important; 
   margin: 0 auto !important; 
   text-decoration: none; 
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
@@ -110,6 +112,7 @@ body {
   align-items: center; 
   justify-content: center; 
   text-transform: uppercase;
+  line-height: 1.2 !important;
 }
 
 /* Botón Protagonista: La Flota (Glow & Glassmorphism sutil) */
