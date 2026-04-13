@@ -220,23 +220,14 @@
     line-height: 0; /* Zero-Gap Ghosting */
     font-size: 0;
     border: none;
-    z-index: 0;
+    z-index: 5;
 }
 
-/* Tapete Invisível - UX Soberania */
-.kids-click-overlay {
-    position: absolute; 
-    top: 0; left: 0; 
-    width: 100%; height: 100%;
-    z-index: 9999 !important;
-    display: block; 
-    cursor: pointer;
+.card-modalidad[data-disciplina="kids"] .card-content-wrapper {
+    pointer-events: none;
 }
 
-/* Eliminação de Bloqueios na base da carta */
-.card-modalidad[data-disciplina="kids"] > *:not(.kids-click-overlay) {
-    pointer-events: none !important;
-}
+/* O overlay global foi removido a favor de links independentes na grid */
 
 .card-modalidad[data-disciplina="kids"] .grid-cell {
     position: relative !important; /* CRÍTICO: Define o limite do link */
@@ -284,8 +275,9 @@
     transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
 }
 
-.card-modalidad[data-disciplina="kids"]:hover .grid-cell-link > img:first-child {
+.card-modalidad[data-disciplina="kids"] .grid-cell-link:hover > img:first-child {
     opacity: 1;
+    transform: scale(1.1);
 }
 
 /* =====================================================================
