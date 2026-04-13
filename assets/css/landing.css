@@ -150,9 +150,9 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom,
-            rgba(10, 10, 10, 0.8) 0%,
-            rgba(10, 10, 10, 0.4) 50%,
-            rgba(10, 10, 10, 0.9) 100%);
+            rgba(0, 0, 0, 0.15) 0%,
+            rgba(0, 0, 0, 0.05) 50%,
+            rgba(0, 0, 0, 0.25) 100%);
     z-index: 0;
 }
 
@@ -173,10 +173,11 @@
     font-weight: 600;
     margin-bottom: var(--espaciado-xs);
     display: block;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
 .hero-content h1 {
-    text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0,0,0,0.5);
     margin-bottom: var(--espaciado-xl);
 }
 
@@ -304,6 +305,19 @@
     padding-left: 5px; /* Compensa el overcrop visual */
 }
 
+.avatar-stack-imgs a {
+    text-decoration: none;
+    line-height: 0;
+    margin-left: -12px;
+    position: relative;
+    transition: transform 0.2s ease, z-index 0.2s;
+}
+
+.avatar-stack-imgs a:first-child {
+    margin-left: 0;
+    z-index: 4;
+}
+
 .avatar-stack img {
     width: 38px;
     height: 38px;
@@ -311,22 +325,14 @@
     object-fit: cover;
     object-position: top center;
     border: 2px solid #1a1a1a; /* Brutalist contour para separar al superponer */
-    margin-left: -12px;
-    position: relative;
-    z-index: 1;
-    transition: transform 0.2s ease, z-index 0.2s;
     box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    cursor: pointer;
 }
+.avatar-stack-imgs a:nth-child(2) { z-index: 3; }
+.avatar-stack-imgs a:nth-child(3) { z-index: 2; }
+.avatar-stack-imgs a:nth-child(4) { z-index: 1; }
 
-.avatar-stack img:first-child {
-    margin-left: 0;
-    z-index: 4;
-}
-.avatar-stack img:nth-child(2) { z-index: 3; }
-.avatar-stack img:nth-child(3) { z-index: 2; }
-.avatar-stack img:nth-child(4) { z-index: 1; }
-
-.avatar-stack img:hover {
+.avatar-stack-imgs a:hover {
     transform: translateY(-5px) scale(1.15);
     z-index: 10 !important;
 }
@@ -1461,4 +1467,9 @@ a.avatar-stack-link:hover .avatar-names {
 .cross-sede-banner:hover h4 strong {
     text-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
     color: #fffacd;
+}
+
+/* Optimization for Deep Linking: Instructor Profiles */
+.card-profesor {
+    scroll-margin-top: 110px;
 }
