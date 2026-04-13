@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Redirects estáticos antigos para a nova Home
+RewriteRule ^2022/03/02/hola-mundo$ /index.html [R=301,L]
+RewriteRule ^inicio$ /index.html [R=301,L]
+RewriteRule ^test$ /index.html [R=301,L]
+RewriteRule ^calendar/118$ /index.html [R=301,L]
+RewriteRule ^author/cttraning$ /index.html [R=301,L]
+
+# Redirects de disciplinas para a âncora apropriada usando [NE] para não codificar o #
+RewriteRule ^ct-judo/?$ /la-flota/index.html#modalidades [R=301,L,NE]
+RewriteRule ^kick-boxing/?$ /la-flota/index.html#modalidades [R=301,L,NE]
+RewriteRule ^mma/?$ /la-flota/index.html#modalidades [R=301,L,NE]
+RewriteRule ^brazilian-jiujitsu/?$ /la-flota/index.html#modalidades [R=301,L,NE]
+RewriteRule ^grappling/?$ /la-flota/index.html#modalidades [R=301,L,NE]
+RewriteRule ^kenpo-karate/?$ /la-flota/index.html#modalidades [R=301,L,NE]
+
+# Definir index automático
+DirectoryIndex index.html
+</IfModule>

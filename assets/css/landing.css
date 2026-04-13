@@ -986,6 +986,14 @@ a.avatar-stack-link:hover .avatar-names {
     /* For notice/alerts */
 }
 
+.card-tablon.evento {
+    border-left-color: #0d6efd;
+    /* For events/seminars */
+}
+.card-tablon.evento .tablon-fecha {
+    color: #0d6efd;
+}
+
 .tablon-fecha {
     font-family: var(--fuente-titulos);
     color: var(--color-primario);
@@ -1464,4 +1472,23 @@ a.avatar-stack-link:hover .avatar-names {
 /* Optimization for Deep Linking: Instructor Profiles */
 .card-profesor {
     scroll-margin-top: 110px;
+}
+
+/* Developer Signature */
+.dev-signature {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    width: 100%;
+    display: block;
+    clear: both;
+    margin-bottom: 20px;
+}
+.dev-name {
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }

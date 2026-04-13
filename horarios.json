@@ -1,0 +1,123 @@
+[
+    {
+        "disciplina": "BOXEO",
+        "dias": [
+            "",
+            "11:00",
+            "",
+            "11:00",
+            "",
+            "Open Mat<br>11:00-13:30"
+        ]
+    },
+    {
+        "disciplina": "KEMPO-KARATE",
+        "dias": [
+            "",
+            "17:30",
+            "",
+            "17:30",
+            "",
+            ""
+        ]
+    },
+    {
+        "disciplina": "KARATE GOYU RYU",
+        "dias": [
+            "7:00",
+            "",
+            "7:00",
+            "",
+            "7:00",
+            ""
+        ]
+    },
+    {
+        "disciplina": "DEFENSA PERSONAL",
+        "dias": [
+            "",
+            "11:00",
+            "",
+            "11:00",
+            "",
+            ""
+        ]
+    },
+    {
+        "disciplina": "ENTR. FUNCIONAL",
+        "dias": [
+            "16:00",
+            "",
+            "16:00",
+            "",
+            "16:00",
+            ""
+        ]
+    },
+    {
+        "disciplina": "MUAY THAI",
+        "dias": [
+            "10:00<br>21:00",
+            "10:00<br>20:00<br>21:00",
+            "21:00",
+            "10:00<br>20:00<br>21:00",
+            "10:00",
+            "Open Mat<br>11:00-13:30"
+        ]
+    },
+    {
+        "disciplina": "KICK BOXING",
+        "dias": [
+            "<span class=\"text-info\">Iniciantes</span><br>19:00<br>Avanzados<br>20:00",
+            "",
+            "<span class=\"text-info\">Iniciantes</span><br>19:00<br>Avanzados<br>20:00",
+            "",
+            "Todos Los Niveles<br>19:00",
+            "Open Mat<br>11:00-13:30"
+        ]
+    },
+    {
+        "disciplina": "MMA",
+        "dias": [
+            "Todos Los Niveles<br>11:00",
+            "<span class=\"text-info\">Iniciantes</span><br>19:00<br>Avanzados<br>20:00",
+            "Todos Los Niveles<br>11:00",
+            "<span class=\"text-info\">Iniciantes</span><br>19:00<br>Avanzados<br>20:00",
+            "Todos Los Niveles<br>19:00",
+            "Open Mat<br>11:00-13:30"
+        ]
+    },
+    {
+        "disciplina": "CAPOEIRA",
+        "dias": [
+            "17:00 Niños<br>18:00 Jóvenes y Adultos<br>19:00 Jóvenes y Adultos",
+            "",
+            "17:00 Niños<br>18:00 Jóvenes y Adultos<br>19:00 Jóvenes y Adultos",
+            "",
+            "",
+            "11:30 - 12:30<br>Jóvenes y Adultos"
+        ]
+    },
+    {
+        "disciplina": "BRAZILIAN JIU-JITSU",
+        "dias": [
+            "11:00<br>12:00<br>17:00 Kids 1<br>20:00<br>Avanzados<br>21:00",
+            "10:00<br>11:00<br>12:00<br>17:00 Kids 2<br><span class=\"text-info\">Iniciantes</span><br>18:00<br>19:00<br>20:00<br>21:00",
+            "11:00 <span class=\"text-danger\">NOGI</span><br>12:00 <span class=\"text-danger\">NOGI</span><br>17:00 Kids 1<br>20:00 <span class=\"text-danger\">NOGI</span><br>Avanzados<br>21:00 <span class=\"text-danger\">NOGI</span>",
+            "10:00 <span class=\"text-danger\">NOGI</span><br>11:00<br>12:00<br>17:00 Kids 2<br><span class=\"text-info\">Iniciantes</span><br>18:00<br>19:00<br>20:00<br>21:00 <span class=\"text-danger\">NOGI</span>",
+            "11:00<br>18:00<br>LUCHA OLÍMPICA Y JUDO NOGI",
+            "Open Mat<br>11:00-13:30"
+        ]
+    },
+    {
+        "disciplina": "JUDO",
+        "dias": [
+            "4 a 5 años<br>16:00<br>6 a 8 años<br>17:00<br>9 a 12 años<br>18:00<br>Adultos<br>10:00<br>19:00",
+            "",
+            "4 a 5 años<br>16:00<br>6 a 8 años<br>17:00<br>9 a 12 años<br>18:00<br>Adultos<br>10:00<br>19:00",
+            "",
+            "Adultos<br>10:00<br>19:00",
+            "Open Mat<br>11:00-13:30"
+        ]
+    }
+]

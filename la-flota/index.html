@@ -414,19 +414,7 @@
                 <h2>NOTICIAS</h2>
                 <p>Novedades, seminarios y avisos importantes.</p>
             </div>
-            <div class="grid-tablon">
-                <article class="card-tablon">
-                    <span class="tablon-fecha">Próximamente</span>
-                    <h3 class="tablon-titulo">CENTRAL TRAINING MURCIA RONDA SUR/AV SANTA CATALINA</h3>
-                    <p class="tablon-desc">Continuamos con las obras a toda velocidad para poder empezar a operar en el
-                        nuevo gimnasio de la Avenida Santa Catalina.</p>
-                </article>
-                <article class="card-tablon aviso">
-                    <span class="tablon-fecha">Aviso</span>
-                    <h3 class="tablon-titulo">Aviso de Festivo</h3>
-                    <p class="tablon-desc">Cerramos jueves (02/04), viernes (03/04) y sábado (04/04) por las fiestas de
-                        semana santa</p>
-                </article>
+            <div class="grid-tablon" id="noticias-container">
             </div>
         </div>
     </section>
@@ -831,7 +819,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 Central Training Murcia. Todos los derechos reservados.</p>
+            <p class="dev-signature">© 2026 Central Training Murcia | Desarrollado por <span class="dev-name">Gasparetto.Developer</span></p>
         </div>
     </footer>
 
@@ -857,11 +845,8 @@
         </svg>
     </a>
 
-    <!-- Controladores JS (Añadir posteriormente la lógica del Menú Solid on Scroll y Open Modals) -->
-    <!-- <script type="module" src="../assets/js/main.js" defer></script> -->
-    <!-- <script type="module" src="../assets/js/modals.js" defer></script> -->
-    <script type="module" src="../assets/js/horarios.js" defer></script>
-
+    <!-- Controladores JS -->
+    
     <!-- =========================================================================
        MODAL / BOTTOM SHEET (DISCIPLINAS)
        ========================================================================= -->
@@ -884,6 +869,10 @@
         </div>
     </div>
 
+    <!-- Scripts -->
+    <script type="module" src="../assets/js/main.js" defer></script>
+    <script src="../assets/js/modals.js" defer></script>
+    <script src="../assets/js/horarios.js" defer></script>
+    <script src="../assets/js/noticias.js" defer></script>
 </body>
-
 </html>

@@ -175,3 +175,24 @@ ol {
     outline: 3px solid var(--color-primario);
     outline-offset: 2px;
 }
+
+/* =====================================================================
+   4. DEVELOPER SIGNATURE (GLOBAL)
+   ===================================================================== */
+.dev-signature {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    width: 100%;
+    display: block;
+    clear: both;
+    margin-bottom: 20px;
+}
+.dev-name {
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
