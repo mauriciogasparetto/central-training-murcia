@@ -845,7 +845,8 @@ a.avatar-stack-link:hover .avatar-names {
 
 .profesor-nombre {
     font-family: var(--fuente-titulos);
-    font-size: var(--tamanio-h4);
+    font-size: 1.8rem; /* Aumentado 20% para maior peso visual */
+    line-height: 1.1; 
     color: var(--color-blanco);
     margin-bottom: 4px;
     font-weight: 600;
