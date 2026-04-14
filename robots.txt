@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.centraltrainingmurcia.com/sitemap.xml
+Sitemap: https://www.murciajiujitsu.com/sitemap.xml
