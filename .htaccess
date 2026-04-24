@@ -1,21 +1,30 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
-# Redirects estáticos antigos para a nova Home
-RewriteRule ^2022/03/02/hola-mundo$ /index.html [R=301,L]
-RewriteRule ^inicio$ /index.html [R=301,L]
-RewriteRule ^test$ /index.html [R=301,L]
-RewriteRule ^calendar/118$ /index.html [R=301,L]
-RewriteRule ^author/cttraning$ /index.html [R=301,L]
+# 1. FORÇAR HTTPS E WWW
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.murciajiujitsu.com/$1 [L,R=301]
 
-# Redirects de disciplinas para a âncora apropriada usando [NE] para não codificar o #
-RewriteRule ^ct-judo/?$ /la-flota/index.html#modalidades [R=301,L,NE]
-RewriteRule ^kick-boxing/?$ /la-flota/index.html#modalidades [R=301,L,NE]
-RewriteRule ^mma/?$ /la-flota/index.html#modalidades [R=301,L,NE]
-RewriteRule ^brazilian-jiujitsu/?$ /la-flota/index.html#modalidades [R=301,L,NE]
-RewriteRule ^grappling/?$ /la-flota/index.html#modalidades [R=301,L,NE]
-RewriteRule ^kenpo-karate/?$ /la-flota/index.html#modalidades [R=301,L,NE]
+# 2. REDIRECTS ESTÁTICOS
+RewriteRule ^inicio/?$ / [R=301,L,NC]
+RewriteRule ^test/?$ / [R=301,L,NC]
+RewriteRule ^2022/03/02/hola-mundo/?$ / [R=301,L,NC]
+RewriteRule ^calendar/118/?$ / [R=301,L,NC]
+RewriteRule ^author/cttraning/?$ / [R=301,L,NC]
 
-# Definir index automático
+# 3. REDIRECTS DE DISCIPLINAS
+RewriteRule ^ct-judo/?$ /la-flota/index.html#modalidades [R=301,L,NE,NC]
+RewriteRule ^kick-boxing/?$ /la-flota/index.html#modalidades [R=301,L,NE,NC]
+RewriteRule ^mma/?$ /la-flota/index.html#modalidades [R=301,L,NE,NC]
+RewriteRule ^brazilian-jiujitsu/?$ /la-flota/index.html#modalidades [R=301,L,NE,NC]
+RewriteRule ^grappling/?$ /la-flota/index.html#modalidades [R=301,L,NE,NC]
+RewriteRule ^kenpo-karate/?$ /la-flota/index.html#modalidades [R=301,L,NE,NC]
+
+# 4. CAPTURA DE LINKS PERDIDOS
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ / [R=301,L]
+
 DirectoryIndex index.html
 </IfModule>
