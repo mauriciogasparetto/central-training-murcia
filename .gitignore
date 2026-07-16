@@ -18,3 +18,8 @@ yarn-error.log
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Artefatos de deploy (não versionar)
+deploy.zip
+extrair.php
+site_ct_producao.zip
