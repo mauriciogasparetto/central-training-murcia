@@ -86,3 +86,25 @@
    --transicion-rapida: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
    --transicion-suave: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
+/* =========================================================================
+   TEMA CLARO (Sedes con fondo blanco, ej. Ronda Sur)
+   Tokens de ROL (no de matiz). Solo se activan con <body class="theme-light">,
+   por lo que las páginas oscuras (La Flota) no se ven afectadas.
+   Regla de contraste: #F2EE33 NUNCA como texto sobre fondo claro (ratio ~1.4:1);
+   para texto/enlaces usar --accent-ink.
+   ========================================================================= */
+body.theme-light {
+   --bg-page: #ffffff;
+   --bg-surface: #f5f5f5;
+   /* Secciones alternadas */
+   --bg-header: rgba(255, 255, 255, 0.92);
+   --text-strong: #111111;
+   /* Títulos y navegación */
+   --text-body: #333333;
+   --text-muted: #5f5f5f;
+   --border-soft: rgba(0, 0, 0, 0.10);
+   --sombra-tarjeta-light: 0 8px 30px rgba(0, 0, 0, 0.12);
+   --accent-ink: #6b6600;
+   /* Amarillo de marca oscurecido para texto sobre blanco (≥4.5:1) */
+}

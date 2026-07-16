@@ -90,61 +90,43 @@ body {
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* BOTONES DE SEDE (High Conversion & Ghost) */
-.gateway-actions { 
-  display: flex; 
-  gap: 1.5rem !important; 
-  justify-content: center; 
-  flex-direction: column; 
-  align-items: center; 
+/* BOTONES DE SEDE (High Conversion - Mismo peso visual para ambas sedes) */
+.gateway-actions {
+  display: flex;
+  gap: 1.5rem !important;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
-.btn-gateway { 
+.btn-gateway {
   font-family: 'Inter', sans-serif; /* Usamos Inter para la UI premium en vez de Bebas */
   font-weight: 600;
-  font-size: 1rem !important; 
-  letter-spacing: 1.5px !important; 
-  padding: 14px 34px !important; 
-  border-radius: 50px !important; 
+  font-size: 1rem !important;
+  letter-spacing: 1.5px !important;
+  padding: 14px 34px !important;
+  border-radius: 50px !important;
   min-width: 320px !important;
   max-width: 400px !important;
   width: auto !important;
-  white-space: nowrap !important; 
-  margin: 0 auto !important; 
-  text-decoration: none; 
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
-  position: relative; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  flex-direction: column; 
+  white-space: nowrap !important;
+  margin: 0 auto !important;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   text-transform: uppercase;
   line-height: 1.2 !important;
-}
-
-/* Botón Protagonista: La Flota (Glow & Glassmorphism sutil) */
-.btn-gateway.primary { 
   background-color: var(--color-primario, #f2ee33); /* Amarillo puro */
-  color: #000; 
+  color: #000;
   border: none;
-  box-shadow: 0 0 30px rgba(242, 238, 51, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.5); 
+  box-shadow: 0 0 30px rgba(242, 238, 51, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.5);
 }
-.btn-gateway.primary:hover { 
-  transform: translateY(-3px) scale(1.02); 
-  box-shadow: 0 10px 40px rgba(242, 238, 51, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5); 
-}
-
-/* Botón Ultra-Minimalista: Ronda Sur (Ghost Button Fantasmal) */
-.btn-gateway.secondary { 
-  background-color: transparent; 
-  color: #888; 
-  border: 1px solid rgba(255, 255, 255, 0.1); 
-  backdrop-filter: blur(5px);
-}
-.btn-gateway.secondary:hover { 
-  background-color: rgba(255, 255, 255, 0.05); 
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #fff; 
-  transform: translateY(-2px);
+.btn-gateway:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 40px rgba(242, 238, 51, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 /* BADGE PRÓXIMAMENTE (Swiss UI / iOS Native) */

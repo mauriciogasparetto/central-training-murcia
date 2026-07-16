@@ -3,37 +3,911 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Central Training Murcia - Ronda Sur | Artes Marciales y Cross Training</title>
-    <link rel="stylesheet" href="../assets/css/variables.css">
-    <link rel="stylesheet" href="../assets/css/global.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Viewport para Mobile-First absoluto -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>Santa Catalina - Central Training Murcia | Artes Marciales y Cross Training</title>
+    <!-- Fuentes: Bebas Neue (Títulos) & Inter (Lectura) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <meta name="description"
+        content="Central Training Murcia - Sede Ronda Sur (Av. de Sta. Catalina). Artes Marciales, Cross Training y Sala de Musculación. ¡Ven a probar tu primera clase gratis!">
+
+    <!-- Configuración PWA y Tema (tema claro) -->
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/png" href="../assets/img/Logo circular limpo.png">
+    <!-- Hojas de Estilo Base (ronda-sur.css sustituye a landing.css: tema claro) -->
+    <link rel="stylesheet" href="../assets/css/variables.css?v=20260716">
+    <link rel="stylesheet" href="../assets/css/global.css?v=20260716">
+    <link rel="stylesheet" href="../assets/css/ronda-sur.css?v=20260716">
+    <link rel="stylesheet" href="../assets/css/modals.css?v=20260716">
+    <link rel="stylesheet" href="../assets/css/horarios.css?v=20260716">
 </head>
 
-<body>
-    <header>
-        <h1>Ronda Sur - ARTES MARCIALES • CROSS TRAINING • SALA DE MUSCULACIÓN</h1>
-        <p>Landing en construcción.</p>
-        <a href="../index.html" class="btn-outline">Volver al Portal</a>
+<body class="theme-light" data-sede="Ronda Sur" data-whatsapp="34605823557">
+
+    <!-- =========================================================================
+       CABECERA Y NAVEGACIÓN PRINCIPAL (Hamburguesa en mobile, inline en desktop)
+       ========================================================================= -->
+    <header class="site-header" id="header">
+        <a href="../index.html" aria-label="Volver al Portal Gateway">
+            <img src="../assets/img/Logo circular limpo.png" alt="Central Training Murcia" class="site-logo"
+                loading="lazy">
+        </a>
+
+        <!-- Botón hamburguesa (visible solo <992px; controlado por nav.js) -->
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav"
+            aria-label="Abrir menú de navegación">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+        </button>
+
+        <nav class="main-nav" id="main-nav" aria-label="Navegación de Sede">
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#historia" class="nav-link">Nuestra Historia</a>
+            <a href="#modalidades" class="nav-link">Disciplinas</a>
+            <a href="#horarios" class="nav-link">Horarios</a>
+            <a href="#tablon" class="nav-link">Noticias</a>
+            <a href="#profesores" class="nav-link">Profesores</a>
+            <a href="#instalaciones" class="nav-link">Instalaciones</a>
+            <a href="#contacto" class="nav-link">Contacto</a>
+            <a href="#tienda" class="nav-link">Tienda <span class="nav-badge">[Próximamente]</span></a>
+        </nav>
     </header>
-    <section id="contacto" style="padding: 100px 0; background-color: var(--color-negro);">
+
+    <!-- =========================================================================
+       HERO SECTION (Atención)
+       PROVISIONAL: video de la sede La Flota; reemplazar con material de Ronda Sur
+       ========================================================================= -->
+    <section class="hero-section" id="inicio">
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="../assets/video/hero-ct.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content container">
+            <!-- Hero Desnudo - Cero textos según indicación Brutalista -->
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       NUESTRA HISTORIA
+       ========================================================================= -->
+    <section class="section-historia" id="historia">
         <div class="container">
-            <h2 style="color: var(--color-blanco);">UBICACIÓN - AV. DE STA. CATALINA</h2>
-            <div class="map-container" style="margin-bottom: 2rem;">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.770129616921!2d-1.138809925236806!3d37.95915300151955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd637f4cdcba182d%3A0xf24c3ddf2b19abe8!2sAv.%20de%20Sta.%20Catalina%2C%2089%2C%2030012%20San%20Benito%20-%20Pati%C3%B1o%2C%20Murcia!5e0!3m2!1ses!2ses!4v1777023994348!5m2!1ses!2ses"
-                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div class="contact-info" style="color: var(--color-blanco);">
-                <p><strong>Dirección:</strong> Av. de Sta. Catalina, 89, 30012 San Benito - Patiño, Murcia</p>
+            <div class="historia-content">
+                <div class="historia-grid">
+                    <div class="historia-text">
+                        <h2>Nuestra Historia</h2>
+                        <p>Central Training es más que una simple escuela de artes marciales; es un centro integral
+                            dedicado a
+                            promover un bienestar completo a través de una variedad de disciplinas que buscan mejorar la
+                            salud
+                            mental, física y las habilidades de autodefensa de sus miembros. Nuestra filosofía se centra
+                            en el
+                            desarrollo holístico del individuo, ofreciendo un camino hacia una vida más plena y
+                            saludable.</p>
+                        <p>La historia de Central Training comienza en el año 2007, marcando el inicio de nuestra misión
+                            con la
+                            apertura de nuestra primera escuela dedicada exclusivamente al Brazilian Jiu-Jitsu (BJJ).
+                            Esta
+                            disciplina, conocida por sus técnicas de agarre y control en el suelo, fue la base sobre la
+                            cual se
+                            construyó nuestro compromiso con la excelencia en las artes marciales.</p>
+                        <p>Diez años más tarde, en 2017, se inauguró Central Training Murcia, ampliando nuestras
+                            instalaciones y
+                            oferta educativa. En este nuevo espacio, se sumaron un diverso cuadro de maestros y
+                            profesores
+                            especializados en distintas disciplinas marciales y entrenamientos funcionales, permitiendo
+                            así un
+                            enfoque más completo en el desarrollo de nuestros socios y alumnos.</p>
+                        <p>Hoy damos un nuevo paso con la apertura de nuestra sede en Ronda Sur (Av. de Sta. Catalina):
+                            un espacio moderno que acerca las artes marciales, el cross training y la sala de
+                            musculación a la zona sur de Murcia, con la misma filosofía y el mismo equipo de
+                            profesionales que nos avalan desde hace más de 15 años.</p>
+                    </div>
+                    <div class="historia-img-wrapper">
+                        <!-- PROVISIONAL: imagen de la sede La Flota; reemplazar con foto de Ronda Sur -->
+                        <img src="../assets/img/historia-ct-stacatalina.jpeg" alt="Instalaciones de Central Training Murcia"
+                            loading="lazy">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p class="dev-signature">© 2026 Central Training Murcia | Desarrollado por <span
-                class="dev-name">Gasparetto.Developer</span></p>
+    <!-- =========================================================================
+       GRID DE MODALIDADES (Interés)
+       ========================================================================= -->
+    <section class="section-modalidades" id="modalidades">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>NUESTRAS DISCIPLINAS</h2>
+                <p>Descubre el arte marcial perfecto para ti. Desde principiantes hasta competidores avanzados.</p>
+            </div>
+
+            <div class="grid-modalidades">
+
+                <!-- Tarjeta 1: BJJ Gi -->
+                <article class="card-modalidad" tabindex="0" data-disciplina="bjj">
+                    <img src="../assets/img/bjj_stacatalina.jpeg" alt="Fondo BJJ" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Brazilian Jiu-Jitsu (BJJ)</h3>
+                        <p class="card-desc">Arte marcial centrado en el combate en el suelo, utilizando técnicas de
+                            agarre, control y sumisión para neutralizar al oponente usando la técnica y la estrategia en
+                            lugar de la fuerza bruta.</p>
+                        <div class="avatar-stack">
+                            <div class="avatar-stack-imgs">
+                                <a href="#prof-rafa"><img src="../assets/img/foto-rafa.png" alt="Rafa"></a>
+                                <a href="#prof-serjao"><img src="../assets/img/foto-sergio.png" alt="Serjão"></a>
+                                <a href="#prof-mauricio"><img src="../assets/img/foto-mauricio.png" alt="Mauricio"></a>
+                            </div>
+                            <span class="avatar-names">Rafa, Serjão & Mauricio</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 2: Jiu-Jitsu NoGi -->
+                <article class="card-modalidad" tabindex="0" data-disciplina="nogi">
+                    <img src="../assets/img/nogi_stacatalina.jpeg" alt="Fondo Jiu-Jitsu NoGi" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Jiu-Jitsu NoGi</h3>
+                        <p class="card-desc">Disciplina sin kimono que combina derribos, agarres y sumisiones para
+                            controlar al adversario. Aprenderás a dominar al oponente utilizando agarres naturales del
+                            cuerpo humano (cuello, muñecas, cintura).</p>
+                        <div class="avatar-stack">
+                            <div class="avatar-stack-imgs">
+                                <a href="#prof-rafa"><img src="../assets/img/foto-rafa.png" alt="Rafa"></a>
+                                <a href="#prof-serjao"><img src="../assets/img/foto-sergio.png" alt="Serjão"></a>
+                                <a href="#prof-mauricio"><img src="../assets/img/foto-mauricio.png" alt="Mauricio"></a>
+                            </div>
+                            <span class="avatar-names">Rafa, Serjão & Mauricio</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 3: MMA -->
+                <article class="card-modalidad" tabindex="0" data-disciplina="mma">
+                    <img src="../assets/img/mma_stacatalina.jpeg" alt="Fondo MMA" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">MMA (Artes Marciales Mixtas)</h3>
+                        <p class="card-desc">Sistema de combate completo que integra las mejores técnicas de golpeo y
+                            agarre. Ofrece una experiencia versátil, eficaz y moderna para acondicionamiento físico y
+                            autodefensa.</p>
+                        <div class="avatar-stack">
+                            <div class="avatar-stack-imgs">
+                                <a href="#prof-alex"><img src="../assets/img/foto-alejandro.png" alt="Alejandro"></a>
+                                <a href="#prof-rafa"><img src="../assets/img/foto-rafa.png" alt="Rafa"></a>
+                            </div>
+                            <span class="avatar-names">Alejandro & Rafa</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 4: BJJ Kids -->
+                <article class="card-modalidad" tabindex="0" data-target="modal-disciplina" data-disciplina="kids">
+                    <div class="bg-grid-2x2">
+                        <div class="grid-cell">
+                            <a href="#prof-sabina" class="grid-cell-link">
+                                <img src="../assets/img/kids.jpeg" alt="Kids 1" loading="lazy"
+                                    onerror="this.src='../assets/img/kids.jpeg'">
+                                <span class="cell-nametag">BJJ KIDS</span>
+                                <img src="../assets/img/foto-sabina.png" class="cell-avatar" alt="Sabina">
+                            </a>
+                        </div>
+                        <div class="grid-cell">
+                            <a href="#prof-anthony" class="grid-cell-link">
+                                <img src="../assets/img/kids2.png" alt="Kids 2" loading="lazy"
+                                    onerror="this.src='../assets/img/kids.jpeg'">
+                                <span class="cell-nametag">JUDO KIDS</span>
+                                <img src="../assets/img/foto-anthony.png" class="cell-avatar" alt="Anthony">
+                            </a>
+                        </div>
+                        <div class="grid-cell">
+                            <a href="#prof-victor" class="grid-cell-link">
+                                <img src="../assets/img/kids3.png" alt="Kids 3" loading="lazy"
+                                    onerror="this.src='../assets/img/kids.jpeg'">
+                                <span class="cell-nametag">CAPOEIRA KIDS</span>
+                                <img src="../assets/img/foto-victor.png" class="cell-avatar" alt="Victor">
+                            </a>
+                        </div>
+                        <div class="grid-cell">
+                            <a href="#prof-yoli" class="grid-cell-link">
+                                <img src="../assets/img/kids4.png" alt="Kids 4" loading="lazy"
+                                    onerror="this.src='../assets/img/kids.jpeg'">
+                                <span class="cell-nametag">KEMPO KIDS</span>
+                                <img src="../assets/img/foto-yoli.png" class="cell-avatar" alt="Yoli">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title title-kids">KIDS</h3>
+                        <p class="card-desc">Desarrollo infantil a través de las artes marciales. Fomentamos valores,
+                            disciplina, respeto y coordinación motora desde edades tempranas.</p>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 5: Capoeira -->
+                <article class="card-modalidad" tabindex="0" data-disciplina="capoeira">
+                    <img src="../assets/img/capoeira.png" alt="Fondo Capoeira" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Capoeira</h3>
+                        <p class="card-desc">Arte marcial afro-brasileño que combina facetas de danza, música y
+                            acrobacias, así como expresión corporal. Favorece la fuerza, elasticidad muscular y ritmo.
+                        </p>
+                        <div class="avatar-stack">
+                            <div class="avatar-stack-imgs">
+                                <a href="#prof-victor"><img src="../assets/img/foto-victor.png"
+                                        alt="Victor Nichida"></a>
+                            </div>
+                            <span class="avatar-names">Victor Nichida</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 6: Judo -->
+                <article class="card-modalidad" tabindex="0" data-disciplina="judo">
+                    <img src="../assets/img/judo.png" alt="Fondo Judo" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Judo</h3>
+                        <p class="card-desc">Arte marcial japonés basado en proyecciones, derribos y control en suelo,
+                            ideal para aprender disciplina, equilibrio, técnica y respeto mientras se desarrolla la
+                            fuerza y agilidad.</p>
+                        <div class="avatar-stack">
+                            <div class="avatar-stack-imgs">
+                                <a href="#prof-anthony"><img src="../assets/img/foto-anthony.png" alt="Anthony"></a>
+                            </div>
+                            <span class="avatar-names">Anthony</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 7: Kick Boxing -->
+                <article class="card-modalidad" tabindex="0" data-disciplina="kickboxing">
+                    <img src="../assets/img/Kick-Boxing.jpeg" alt="Fondo Kick Boxing" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Kick Boxing</h3>
+                        <p class="card-desc">Deporte de combate dinámico que combina puños y patadas, mejora la
+                            condición física, la coordinación y los reflejos, además de ser una herramienta eficaz para
+                            autodefensa.</p>
+                        <div class="avatar-stack">
+                            <div class="avatar-stack-imgs">
+                                <a href="#prof-miguel"><img src="../assets/img/profesores/foto-miguel.jpeg"
+                                        alt="Miguel"></a>
+                            </div>
+                            <span class="avatar-names">Miguel</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 8: Muay Thai -->
+                <article class="card-modalidad" tabindex="0" data-disciplina="muaythai">
+                    <img src="../assets/img/MuayThai.jpeg" alt="Fondo Muay Thai" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Muay Thai</h3>
+                        <p class="card-desc">Arte marcial tailandés que utiliza puños, codos, rodillas y piernas en
+                            potentes combinaciones, ideal para desarrollar fuerza, resistencia, coordinación y defensa
+                            personal.</p>
+                        <div class="avatar-stack">
+                            <div class="avatar-stack-imgs">
+                                <a href="#prof-cristovao"><img src="../assets/img/foto-cristovao.png"
+                                        alt="Cristóvão"></a>
+                            </div>
+                            <span class="avatar-names">Cristóvão</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 9: Kempo -->
+                <article class="card-modalidad" tabindex="0" data-disciplina="kempo">
+                    <img src="../assets/img/kempo_stacatalina.jpeg" alt="Fondo Kempo" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Kempo-Karate</h3>
+                        <p class="card-desc">Sistema híbrido de defensa personal que combina técnicas de puños, patadas
+                            y bloqueos con movimientos fluidos y rápidos, ideal para mejorar reflejos y confianza.</p>
+                        <div class="avatar-stack">
+                            <div class="avatar-stack-imgs">
+                                <a href="#prof-yoli"><img src="../assets/img/foto-yoli.png" alt="Yoli"></a>
+                            </div>
+                            <span class="avatar-names">Yoli</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 10: Boxeo -->
+                <article class="card-modalidad" tabindex="0" data-disciplina="boxeo">
+                    <img src="../assets/img/boxeo_sta_catalina.jpeg" alt="Fondo Boxeo" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Boxeo</h3>
+                        <p class="card-desc">Deporte de combate basado en puños, desplazamientos y defensa, perfecto
+                            para aumentar fuerza, resistencia, coordinación y reflejos, además de ser un gran
+                            entrenamiento cardiovascular.</p>
+                       <div class="avatar-stack">
+                            <div class="avatar-stack-imgs">
+                                <a href="#prof-miguel"><img src="../assets/img/profesores/foto-miguel.jpeg"
+                                        alt="Miguel"></a>
+                            </div>
+                            <span class="avatar-names">Miguel</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 11: Defensa Personal -->
+                <article class="card-modalidad" tabindex="0" data-disciplina="defensapersonal">
+                    <img src="../assets/img/defensa-personal.jpeg" alt="Fondo Defensa Personal" class="bg-image"
+                        loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Defensa Personal</h3>
+                        <p class="card-desc">Conjunto de técnicas simples y efectivas para protegerte en situaciones
+                            reales, enseñando a reaccionar con seguridad y confianza frente a posibles agresiones.</p>
+                        <div class="avatar-stack">
+                            <div class="avatar-stack-imgs">
+                                <a href="#prof-mauricio"><img src="../assets/img/foto-mauricio.png" alt="Mauricio"></a>
+                                <a href="#prof-rafa"><img src="../assets/img/foto-rafa.png" alt="Rafa"></a>
+                                <a href="#prof-serjao"><img src="../assets/img/foto-sergio.png" alt="Serjão"></a>
+                            </div>
+                            <span class="avatar-names">Mauricio, Rafa & Serjão</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 12: Lucha -->
+                <article class="card-modalidad" tabindex="0" data-disciplina="lucha">
+                    <img src="../assets/img/lucha_stacatalina.jpeg" alt="Fondo Lucha" class="bg-image" loading="lazy">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Lucha</h3>
+                        <p class="card-desc">La lucha olímpica es un deporte de combate cuerpo a cuerpo que combina
+                            fuerza, técnica y estrategia pura. El objetivo es controlar y derribar al oponente en el
+                            tapiz, desarrollando una condición física excepcional y una disciplina mental
+                            inquebrantable.</p>
+                        <!-- Instructor por confirmar: silueta neutra, sin enlace -->
+                        <div class="avatar-stack avatar-stack-static">
+                            <div class="avatar-stack-imgs">
+                                <img src="../assets/img/rosto-negro.png" alt="Profesor por confirmar">
+                            </div>
+                            <span class="avatar-names">Por confirmar</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       HORARIOS (Acción - Contenedor Tabla Dinámica)
+       PROVISIONAL: horarios-ronda-sur.json contiene una parrilla provisional
+       ========================================================================= -->
+    <section id="horarios" class="section-horarios">
+        <div class="container">
+            <h2>Horarios de Entrenamiento</h2>
+            <p class="horarios-intro">Entrena sin límites. Clases distribuidas a lo largo de toda la jornada para
+                adaptarnos a tu ritmo de vida, desde las 07:00h de la mañana hasta las 23:00h de la noche.</p>
+
+            <!-- Contenedor vacío donde inyectaremos la tabla vía JS (fuente por sede) -->
+            <div id="horarios-table-container" data-horarios-src="/horarios-ronda-sur.json">
+                <div class="horarios-placeholder">
+                    <p><em>[La tabla de horarios se cargará aquí vía JavaScript dinámico]</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       TABLÓN DE ANUNCIOS / EVENTOS (tablón compartido /noticias.json)
+       ========================================================================= -->
+    <section id="tablon" class="section-tablon">
+        <div class="container">
+            <div class="section-title">
+                <h2>NOTICIAS</h2>
+                <p>Novedades, seminarios y avisos importantes.</p>
+            </div>
+            <div class="grid-tablon" id="noticias-container">
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       PROFESORES
+       PROVISIONAL: mismo cuadro docente que La Flota; ajustar cuando se
+       confirme el equipo específico de Ronda Sur
+       ========================================================================= -->
+    <section class="section-equipo" id="profesores">
+        <div class="container">
+            <div class="section-title">
+                <h2>PROFESORES</h2>
+                <p>Aprende de los mejores profesionales. Pioneros y especialistas certificados a nivel internacional.
+                </p>
+            </div>
+
+            <div class="grid-equipo">
+                <!-- Profesor 1: Rafa -->
+                <article class="card-profesor" id="prof-rafa">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-rafa.png" alt="Rafael Dos Santos" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Rafael Dos Santos</h3>
+                        <span class="profesor-cargo">Fundador /Head Coach</span>
+                        <p class="profesor-desc">Black Belt BJJ, profesor de educación física, graduado en capoeira, y
+                            pionero en el jiujitsu brasileño en la región de Murcia. Amplia experiencia como Arbitro,
+                            profesor y competidor. Reconocido por las federaciones IBJJF, FIJJD Y CBJJ.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 2: Serjão -->
+                <article class="card-profesor" id="prof-serjao">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-sergio.png" alt="Sergio Corradi" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Sergio Corradi</h3>
+                        <span class="profesor-cargo">Fundador / Profesor de Jiu-Jitsu & Jiu-Jitsu NoGi</span>
+                        <p class="profesor-desc">Black Belt BJJ, Brow Belt en JUDO, Entrenador Nacional de Grapling.
+                            Actuación como árbitro y competidor en los campeonatos y copas de mayor relevancia en el
+                            escenario nacional. Reconocido por las federaciones FIJJD, IBJJF, y CBJJ.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 3: Mauricio -->
+                <article class="card-profesor" id="prof-mauricio">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-mauricio.png" alt="Mauricio Gasparetto" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Mauricio Gasparetto</h3>
+                        <span class="profesor-cargo">Profesor de Jiu-Jitsu, Jiu-Jitsu NoGi y Defensa Personal</span>
+                        <p class="profesor-desc">Con más de 20 años de experiencia en Jiu-Jitsu Brasileño, comenzó a los
+                            16 años y ha competido en diversos campeonatos, siendo reconocido por las principales
+                            federaciones a nivel mundial.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 4: Victor -->
+                <article class="card-profesor" id="prof-victor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-victor.png" alt="Victor Nichida" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Victor Nichida</h3>
+                        <span class="profesor-cargo">Profesor de Capoeira</span>
+                        <p class="profesor-desc">Especializado en la fusión de acrobacias, rítmica afrobrasileña,
+                            agilidad y autodefensa.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 5: Cristovão -->
+                <article class="card-profesor" id="prof-cristovao">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-cristovao.png" alt="Cristóvão Araujo" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Cristóvão Araujo</h3>
+                        <span class="profesor-cargo">Profesor de Muay Thai</span>
+                        <p class="profesor-desc">Con mas de 30 años de experiencia en las artes marciales. Cinturón
+                            negro por la federación Brasileña y internacional (Paradnoy Muay Thai), profesor de Boxeo y
+                            cinturón negro en Brazilian jiujitsu.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 6: Sabina -->
+                <article class="card-profesor" id="prof-sabina">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-sabina.png" alt="Sabina Gómez" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Sabina Gómez</h3>
+                        <span class="profesor-cargo">Entrenadora de Funcional y Monitora de Jiu-Jitsu kids</span>
+                        <p class="profesor-desc">Técnico superior en fitness y entrenamiento personal, estudiante de
+                            nutrición. Profesora de entrenamiento funcional, flexibilidad y Zumba, además de competidora
+                            activa en Jiu-Jitsu Brasileño (BJJ).</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 7: Ale -->
+                <article class="card-profesor" id="prof-alex">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-alejandro.png" alt="Alejandro Contreras" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Alejandro Contreras (Alex)</h3>
+                        <span class="profesor-cargo">Entrenador de MMA</span>
+                        <p class="profesor-desc">Competidor en actividad, experiencia en distintas artes marciales como
+                            Judo, Boxeo, lucha, Grappling y KickBoxing. Participación en varias competiciones logrando
+                            títulos de gran relevancia.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 8: Anthony -->
+                <article class="card-profesor" id="prof-anthony">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-anthony.png" alt="Anthony Satizelle" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Anthony Satizelle</h3>
+                        <span class="profesor-cargo">Profesor de Judo y Preparación mental deportiva</span>
+                        <p class="profesor-desc">Profesor y entrenador de Judo con 30 años de experiencia y 3er Dan.
+                            Máster en optimización del rendimiento deportivo, Técnico Deportivo Nivel 2 y especializado
+                            en preparación física y mental.</p>
+                    </div>
+                </article>
+
+                <!-- Profesor 9: Yoli -->
+                <article class="card-profesor" id="prof-yoli">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-yoli.png" alt="Yoli Martinez" class="profesor-foto" loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Yoli Martinez</h3>
+                        <span class="profesor-cargo">Profesora de Kempo-Karate</span>
+                        <p class="profesor-desc">Practicante de artes marciales desde los 6 años, Black belt en Kenpo
+                            karate, Brown belt karate goju-ryu. Competidora en copas de relevancia en ámbito nacional.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Profesor 10: Miguel -->
+                <article class="card-profesor" id="prof-miguel">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/profesores/foto-miguel.jpeg" alt="Miguel" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Miguel Lucas</h3>
+                        <span class="profesor-cargo">Instructor de Kick-Boxing y Entrenador de Boxeo</span>
+                        <p class="profesor-desc">Practicante de Kick-Boxing desde los 15 años, 
+                            Graduado en Ciencias de la Actividad Física y el Deporte(CAFD), Peleador profesional desde 2025, 
+                            4 veces campeón de España FEKM, Más de 30 combates.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Profesor 11: Juan
+                     OCULTO TEMPORALMENTE (reactivar cuando Lucha vuelva a la parrilla):
+                <article class="card-profesor" id="prof-juan">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/foto-heredia.png" alt="Juan Heredia" class="profesor-foto"
+                            loading="lazy">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">Juan Heredia</h3>
+                        <span class="profesor-cargo">Entrenador de Lucha Libre y Greco Romana</span>
+                        <p class="profesor-desc">Cinturón negro en Judo, miembro de la selección española senior de
+                            Lucha. Conquistó medallas y títulos de gran relevancia en el panorama nacional e
+                            internacional en modalidades de Greco Romana, Lucha y Grappling.</p>
+                    </div>
+                </article>
+                -->
+
+
+                <!-- Profesor: TÚ (Captación) -->
+                <article class="card-profesor">
+                    <div class="profesor-foto-wrapper">
+                        <img src="../assets/img/rosto-negro.png" alt="Reclutamiento Profesores" class="profesor-foto"
+                            loading="lazy"
+                            style="object-fit: cover; object-position: center; border-radius: 50%; width: 100%; height: 100%;">
+                    </div>
+                    <div class="profesor-info">
+                        <h3 class="profesor-nombre">TÚ</h3>
+                        <span class="profesor-cargo">¿Quieres trabajar con nosotros?</span>
+                        <a href="mailto:centraltrainingmurcia@gmail.com" class="btn-action secondary"
+                            style="margin-top: 15px; display: block; font-size: 0.9rem; padding: 10px;">¡Envíanos tu
+                            currículum aquí!</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       INSTALACIONES (Carrusel CSS Scroll Snap - sin JavaScript)
+       PENDIENTE: subir fachada.jpeg y foto-parking.jpeg a assets/img/instalaciones/
+       ========================================================================= -->
+    <section class="section-instalaciones" id="instalaciones">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestras Instalaciones</h2>
+                <p>Un espacio diseñado exclusivamente para el máximo rendimiento y confort de nuestros atletas.</p>
+            </div>
+
+            <div class="carrusel-instalaciones" role="region" aria-label="Galería de instalaciones" tabindex="0">
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/fachada.jpeg" alt="Fachada" loading="lazy">
+                    <figcaption>Fachada</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/musculacion01.jpeg" alt="Musculación" loading="lazy">
+                    <figcaption>Musculación</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/musculacion02.jpeg" alt="Musculación" loading="lazy">
+                    <figcaption>Musculación</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/musculacion03.jpeg" alt="Musculación" loading="lazy">
+                    <figcaption>Musculación</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/musculacion04.jpeg" alt="Musculación" loading="lazy">
+                    <figcaption>Musculación</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/musculacion05.jpeg" alt="Musculación" loading="lazy">
+                    <figcaption>Musculación</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/musculacion06.jpeg" alt="Musculación" loading="lazy">
+                    <figcaption>Musculación</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/crosstraining01.jpeg" alt="Cross Training" loading="lazy">
+                    <figcaption>Cross Training</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/crosstraining02.jpeg" alt="Cross Training" loading="lazy">
+                    <figcaption>Cross Training</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/crosstraining03.jpeg" alt="Cross Training" loading="lazy">
+                    <figcaption>Cross Training</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/crosstraining04.jpeg" alt="Cross Training" loading="lazy">
+                    <figcaption>Cross Training</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/crosstraining05.jpeg" alt="Cross Training" loading="lazy">
+                    <figcaption>Cross Training</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/crosstraining06.jpeg" alt="Cross Training" loading="lazy">
+                    <figcaption>Cross Training</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/tatami01.jpeg" alt="Tatami" loading="lazy">
+                    <figcaption>Tatami 1</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/tatami0101.jpeg" alt="Tatami" loading="lazy">
+                    <figcaption>Tatami 1</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/tatami02.jpeg" alt="Tatami" loading="lazy">
+                    <figcaption>Tatami 2</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/tatami03.jpeg" alt="Tatami" loading="lazy">
+                    <figcaption>Tatami 3</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/tatami0301.jpeg" alt="Tatami" loading="lazy">
+                    <figcaption>Tatami 3</figcaption>
+                </figure>
+                <figure class="carrusel-slide">
+                    <img src="../assets/img/instalaciones/foto-parking.jpeg" alt="Parking" loading="lazy">
+                    <figcaption>Parking</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       UBICACIÓN Y CONTACTO
+       ========================================================================= -->
+    <section id="contacto" class="section-contacto">
+        <div class="contacto-grid">
+            <div class="contacto-info">
+                <h2>UBICACIÓN Y CONTACTO</h2>
+                <p class="contacto-desc">Da el primer paso. Reserva tu <strong>clase de prueba</strong>,
+                    resuelve tus dudas o ven a conocer nuestras instalaciones. Nuestro equipo de maestros está listo
+                    para guiarte en el tatami.</p>
+                <div class="contacto-telefonos">
+                    <a href="https://wa.me/34605823557" class="tel-item" target="_blank" rel="noopener">
+                        <span class="tel-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                            </svg>
+                        </span>
+                        <span class="tel-text"><span class="tel-label">Móvil / WhatsApp</span><strong>605 823
+                                557</strong></span>
+                    </a>
+                    <a href="tel:+34968943447" class="tel-item">
+                        <span class="tel-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+                            </svg>
+                        </span>
+                        <span class="tel-text"><span class="tel-label">Teléfono Fijo</span><strong>968 943
+                                447</strong></span>
+                    </a>
+                </div>
+                <div class="contacto-actions">
+                    <a href="https://wa.me/34605823557?text=Hola,%20quiero%20probar%20una%20clase%20de%20prueba%20en%20Ronda%20Sur."
+                        target="_blank" class="btn-action primary">RESERVAR CLASE</a>
+                    <a href="mailto:centraltrainingmurcia@gmail.com" class="btn-action secondary">Envíanos un Email</a>
+                </div>
+            </div>
+            <div class="contacto-mapa">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.770129616921!2d-1.138809925236806!3d37.95915300151955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd637f4cdcba182d%3A0xf24c3ddf2b19abe8!2sAv.%20de%20Sta.%20Catalina%2C%2089%2C%2030012%20San%20Benito%20-%20Pati%C3%B1o%2C%20Murcia!5e0!3m2!1ses!2ses!4v1777023994348!5m2!1ses!2ses"
+                    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" title="Mapa de ubicación Sede Ronda Sur"></iframe>
+                <a href="../la-flota/index.html#contacto" class="cross-sede-banner">
+                    <span class="icon">📍</span>
+                    <h4>Conoce aquí la ubicación de nuestro otro gimnasio: <strong>SEDE ZARANDONA/LA FLOTA</strong>
+                    </h4>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       SOCIAL PROOF (Deseo - 5 Estrellas Google & Testimonios)
+       ========================================================================= -->
+    <section class="section-autoridad" id="testimonios">
+        <div class="container">
+            <div class="autoridad-resumen">
+                <!-- Google SVG Logo (Authority) -->
+                <svg class="google-reviews-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100"
+                    height="30">
+                    <path fill="#4285F4"
+                        d="M503.4 261.2c0-17.6-1.5-34.6-4.5-51H261.1v96.4h136.2c-5.8 31.3-23.6 57.8-50.6 75.8v63h81.9c48-44.2 74.8-109.2 74.8-184.2z" />
+                    <path fill="#34A853"
+                        d="M261.1 508.4c68.1 0 125.4-22.6 167.3-61.1l-81.9-63c-22.6 15.1-51.6 24.1-85.4 24.1-65.7 0-121.4-44.4-141.2-104.1h-84.6v65.4c41.3 82.2 127.3 138.7 225.8 138.7z" />
+                    <path fill="#FBBC05"
+                        d="M119.9 304.3c-5.1-15.1-8-31.3-8-48.3s2.9-33.2 8-48.3v-65.4h-84.6C15.3 184.1 0 218.8 0 256s15.3 71.9 35.3 113.7l84.6-65.4z" />
+                    <path fill="#EA4335"
+                        d="M261.1 103.6c37.1 0 70.4 12.8 96.6 38l72.4-72.4C386.4 26.6 329.1 0 261.1 0 162.6 0 76.6 56.5 35.3 138.7l84.6 65.4c19.8-59.7 75.5-100.5 141.2-100.5z" />
+                </svg>
+                <div class="estrellas" aria-label="Valoración 5 de 5 estrellas">★★★★★</div>
+                <h3>Excelencia Valorada por Nuestros Alumnos</h3>
+                <p class="reviews-subtitle">Promedio de <span id="google-rating" data-rating="5.0">5.0</span> Estrellas
+                    basado en <span id="google-count" data-count="170">+170</span> reseñas reales.</p>
+                <a href="https://search.google.com/local/writereview?placeid=ChIJzfopBw2CYw0R1DIrCzA4pLA"
+                    class="link-resena" target="_blank" rel="noopener noreferrer">Déjanos tu reseña en Google</a>
+            </div>
+            <div class="grid-testimonios">
+                <article class="testimonio-card">
+                    <p class="testimonio-texto">"Como chica, buscaba un sitio donde entrenar tranquila y con confianza.
+                        El ambiente es súper respetuoso, las instalaciones siempre impecables y los profesores están
+                        pendientes de ti desde el primer día. 100% recomendado."</p>
+                    <p class="testimonio-autor">— Laura Martínez</p>
+                </article>
+                <article class="testimonio-card">
+                    <p class="testimonio-texto">"Empecé sin haber hecho nunca artes marciales y me sentí acogida desde
+                        la primera clase. Todo muy limpio, grupos con cada vez más chicas y unos instructores que
+                        explican con muchísima paciencia y nivel."</p>
+                    <p class="testimonio-autor">— María López</p>
+                </article>
+                <article class="testimonio-card">
+                    <p class="testimonio-texto">"...La calidad de esta COMUNIDAD DE ARTES MARCIALES no solo se mide por
+                        el excelente equipo de profesionales, sino por el respeto, los valores que transmiten y el
+                        ambiente increíble de compañeros y hermanos."</p>
+                    <p class="testimonio-autor">— Pablo Molina</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+       FOOTER & UBICACIÓN LOCAL
+       ========================================================================= -->
+    <footer class="site-footer">
+        <div class="footer-logo-wrapper">
+            <img src="../assets/img/Logotipo circular re.png" alt="Central Training Murcia" class="footer-logo">
+        </div>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>DIRECCIÓN</h4>
+                <p>Central Training Murcia - Santa Catalina<br>Av. de Sta. Catalina, 89<br>30012 San Benito - Patiño, Murcia
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>HORARIOS</h4>
+                <p>Lunes a Viernes <strong>07:00h - 23:00h</strong><br>Sábados <strong>09:00h - 14:00h</strong></p>
+                <span class="badge-parking">
+                    Parking Gratuito Exclusivo para Alumnos
+                </span>
+            </div>
+            <div class="footer-col">
+                <h4>SÍGUENOS</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com/jiujitsu_murcia" target="_blank" class="social-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-instagram" viewBox="0 0 16 16" style="margin-right: 8px;">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                        </svg>
+                        @jiujitsu_murcia
+                    </a>
+                    <a href="https://instagram.com/murcia_bjj" target="_blank" class="social-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-instagram" viewBox="0 0 16 16" style="margin-right: 8px;">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                        </svg>
+                        @murcia_bjj
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="dev-signature">© 2026 Central Training Murcia | Desarrollado por <span
+                    class="dev-name">Gasparetto.Developer</span></p>
+        </div>
     </footer>
+
+    <!-- =========================================================================
+       BOTÓN FLOTANTE CTA (WhatsApp) - BADGE GIRATORIO
+       ========================================================================= -->
+    <a href="https://wa.me/34605823557?text=Hola,%20quiero%20probar%20una%20clase%20de%20prueba%20en%20Ronda%20Sur."
+        class="btn-whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+
+        <svg class="wa-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff"
+            viewBox="0 0 16 16" style="position: relative; z-index: 2;">
+            <path
+                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+        </svg>
+
+        <svg class="rotating-text" viewBox="0 0 100 100"
+            style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; animation: spin 10s linear infinite;">
+            <path id="textPath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="transparent" />
+            <text font-family="var(--fuente-titulos)" fill="#111111" font-size="12" font-weight="400"
+                letter-spacing="2">
+                <textPath href="#textPath" startOffset="0%">ENTRAR AL TATAMI • ENTRAR AL TATAMI • </textPath>
+            </text>
+        </svg>
+    </a>
+
+    <!-- =========================================================================
+       MODAL / BOTTOM SHEET (DISCIPLINAS)
+       ========================================================================= -->
+    <div id="modal-disciplina" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Cerrar modal">&times;</button>
+
+            <!-- Contenedor dinámico (JS inyectará contenido aquí) -->
+            <div class="modal-body">
+                <div class="modal-image-wrapper">
+                    <img src="" alt="Imagen Disciplina" class="modal-image" id="modal-img">
+                </div>
+                <h3 id="modal-title" class="modal-title"></h3>
+                <p id="modal-desc" class="modal-desc"></p>
+
+                <a href="#" id="modal-cta" class="btn-cta modal-cta" target="_blank" rel="noopener">
+                    Probar esta clase
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="../assets/js/main.js?v=20260716" defer></script>
+    <script src="../assets/js/nav.js?v=20260716" defer></script>
+    <script src="../assets/js/lightbox.js?v=20260716" defer></script>
+    <script src="../assets/js/modals.js?v=20260716" defer></script>
+    <script src="../assets/js/horarios.js?v=20260716" defer></script>
+    <script src="../assets/js/noticias.js?v=20260716" defer></script>
 </body>
 
 </html>

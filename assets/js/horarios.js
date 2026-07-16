@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. CARGA DE DATOS (Fetch API) Y RENDERIZADO DEL GRID
     // =========================================================================
 
-    fetch('/horarios.json')
+    // Fuente por sede: data-horarios-src en el contenedor; fallback = La Flota
+    fetch(container.dataset.horariosSrc || '/horarios.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

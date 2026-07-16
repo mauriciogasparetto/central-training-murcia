@@ -1,9 +1,9 @@
 [
   {
     "categoria": "Evento",
-    "titulo": "Inauguración de Ronda Sur",
-    "descricao": "Las obras de nuestra nueva sede avanzan a buen ritmo. Muy pronto abriremos nuestras puertas en la Avenida de Santa Catalina, 89, equipados con varios tatamis premium, zona de cross training y área de musculación.",
-    "data_display": "Mayo 2026"
+    "titulo": "Santa Catalina a Pleno Rendimiento",
+    "descricao": "Junio de 2026 marcó el inicio de nuestra andadura en Av. de Sta Catalina. Desde la inauguración, no hemos dejado de innovar y ampliar nuestras instalaciones para ofreceros el espacio definitivo de entrenamiento. Con clases llenas de energía y una comunidad que no para de crecer, estamos a pleno rendimiento también durante el verano. ¡No cerramos por vacaciones! Ven a entrenar y aprovecha la temporada estival en un ambiente inmejorable.",
+    "data_display": "Junio 2026"
   },
   {
     "categoria": "Aviso",
@@ -12,9 +12,9 @@
     "data_display": "2026"
   },
   {
-    "categoria": "Novo",
-    "titulo": "Graduación de Verano 2026",
-    "descricao": "¡Confirmada nuestra graduación de verano! Preparaos, porque este año tendremos novedades en la entrega de grados y una gran fiesta en familia.",
-    "data_display": "Julio 2026"
+    "categoria": "Promo",
+    "titulo": "Promociones Especiales de Verano",
+    "descricao": "¡Entrena este verano al mejor precio! Aprovecha nuestras tarifas exclusivas para Julio y Agosto:<br>• Artes Marciales (Julio + Agosto completo) por solo 100€, con Matrícula Gratuita.<br>• Sala de Musculación por solo 50€ (Julio + Agosto completo). Reserva tu plaza ya y no pierdas el ritmo.",
+    "data_display": "Julio - Agosto 2026"
   }
 ]

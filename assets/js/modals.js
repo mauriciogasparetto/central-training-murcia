@@ -40,9 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
             modalTitle.textContent = sourceTitle;
             modalDesc.textContent = sourceDesc;
 
-            // Personalizar el WhatsApp de CTA según la disciplina
-            const msgTexto = encodeURIComponent(`Hola, quiero probar una clase gratis de ${sourceTitle} en La Flota`);
-            ctaButton.href = `https://wa.me/34633882718?text=${msgTexto}`;
+            // Personalizar el WhatsApp de CTA según la disciplina y la sede
+            // (data-sede / data-whatsapp en <body>; fallback = La Flota)
+            const sede = document.body.dataset.sede || 'La Flota';
+            const waNumber = document.body.dataset.whatsapp || '34633882718';
+            const msgTexto = encodeURIComponent(`Hola, quiero probar una clase gratis de ${sourceTitle} en ${sede}`);
+            ctaButton.href = `https://wa.me/${waNumber}?text=${msgTexto}`;
 
             // 4. Mostrar el Modal y bloquear scroll
             modalOverlay.classList.add('is-active');

@@ -1,0 +1,1684 @@
+/* =========================================================================
+   LANDING PAGE TEMA CLARO (Sede Ronda Sur) - Central Training Murcia
+   Sustituye a landing.css en esta página. Estructura portada de landing.css,
+   colores consumidos desde los tokens body.theme-light (variables.css).
+   ========================================================================= */
+
+/* =====================================================================
+   0. BASE DEL TEMA CLARO
+   (global.css pinta body oscuro y headings claros: aquí se invierte)
+   ===================================================================== */
+body.theme-light {
+    background-color: var(--bg-page);
+    color: var(--text-body);
+}
+
+/* :where() mantiene especificidad 0-1-0: los componentes (ej. .card-title
+   blanco sobre foto) declarados después pueden sobrescribir sin !important */
+body.theme-light :where(h1, h2, h3, h4, h5, h6) {
+    color: var(--text-strong);
+}
+
+/* Foco visible sobre fondo blanco (el outline amarillo global se pierde) */
+body.theme-light *:focus-visible {
+    outline: 3px solid var(--accent-ink);
+    outline-offset: 2px;
+}
+
+/* =====================================================================
+   1. NAVEGACIÓN (Desktop & Mobile)
+   ===================================================================== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* Logo a la izquierda, menú/hamburguesa a la derecha */
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--espaciado-sm) var(--espaciado-md);
+    background-color: var(--bg-header);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 9999;
+    transition: background-color var(--transicion-suave);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.site-header > a:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    z-index: 10001; /* igual al botón X: el logo se mantiene visible sobre el overlay */
+}
+
+.site-logo {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    transform: scale(1.15);
+    transform-origin: left center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.site-logo:hover {
+    transform: scale(1.22);
+    filter: drop-shadow(0px 4px 15px rgba(107, 102, 0, 0.4));
+}
+
+.site-header.is-scrolled {
+    background-color: rgba(255, 255, 255, 0.97);
+}
+
+.site-header.is-scrolled .site-logo {
+    height: 64px;
+}
+
+/* ---------------------------------------------------------------------
+   1a. HAMBURGUESA (visible solo <992px)
+   Estado ARIA como única fuente de verdad: el CSS del icono se engancha
+   a [aria-expanded="true"], nunca puede desincronizarse de la a11y.
+   --------------------------------------------------------------------- */
+.nav-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    /* Área táctil mínima recomendada */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10001;
+    /* Siempre por encima del panel overlay */
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background-color: var(--text-strong);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ---------------------------------------------------------------------
+   1b. PANEL OVERLAY (mobile-first, <992px)
+   --------------------------------------------------------------------- */
+.main-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    /* Bajo el botón hamburguesa, sobre el resto de la página */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* flex-start + overflow evita el bug de flexbox que recortaba (sin scroll)
+       la parte superior de la lista cuando los 9 ítems superan el alto de pantalla */
+    gap: 1rem;
+    padding: 7rem 1.5rem 2.5rem;
+    /* Libera el alto del header fijo + respiración inferior */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    background-color: var(--bg-page);
+    /* 100% opaco: elimina el efecto "cristal esmerilado" que dejaba ver el fondo */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.main-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+}
+
+.main-nav .nav-link {
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-strong);
+    position: relative;
+    padding: 0.4rem 0;
+}
+
+.main-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-primario);
+    transition: width var(--transicion-rapida);
+}
+
+.main-nav .nav-link:hover::after,
+.main-nav .nav-link:focus::after {
+    width: 100%;
+}
+
+/* Bloqueo del scroll de fondo con el menú abierto (lo alterna nav.js) */
+body.nav-open {
+    overflow: hidden;
+}
+
+/* ---------------------------------------------------------------------
+   1c. DESKTOP (≥992px): nav inline idéntico a La Flota, colores claros
+   --------------------------------------------------------------------- */
+@media (min-width: 992px) {
+    .nav-toggle {
+        display: none;
+    }
+
+    .main-nav {
+        position: static;
+        inset: auto;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: var(--espaciado-md);
+        padding: 0;
+        overflow: visible;
+        background: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        pointer-events: auto;
+        transition: none;
+    }
+
+    .main-nav .nav-link {
+        font-family: var(--fuente-texto);
+        color: var(--text-strong);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: var(--tamanio-pequeno);
+        letter-spacing: 1px;
+        padding: var(--espaciado-xs) 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .main-nav,
+    .nav-toggle-bar,
+    .main-nav .nav-link::after {
+        transition: none;
+    }
+}
+
+/* Badge Tienda en el menú */
+.nav-badge {
+    font-size: 0.65rem;
+    background-color: var(--color-primario);
+    color: var(--color-negro);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+    font-weight: 800;
+    text-transform: uppercase;
+    vertical-align: super;
+}
+
+/* =====================================================================
+   2. HERO SECTION (Video Autoplay Muted)
+   ===================================================================== */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: var(--z-index-fondo);
+    object-fit: cover;
+}
+
+/* Overlay: aclara hacia la base para fundirse con la página blanca */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.15) 0%,
+            rgba(0, 0, 0, 0.05) 50%,
+            rgba(255, 255, 255, 0.15) 100%);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: var(--z-index-base);
+    max-width: 800px;
+    padding: 0 var(--espaciado-md);
+    margin-top: calc(var(--espaciado-xl) * 2);
+}
+
+/* =====================================================================
+   3. NUESTRA HISTORIA
+   ===================================================================== */
+.section-historia {
+    padding: var(--espaciado-xxl) 0;
+    background-color: var(--bg-page);
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.historia-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.historia-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+@media (min-width: 992px) {
+    .historia-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.historia-text h2 {
+    color: var(--text-strong);
+    font-size: var(--tamanio-h2);
+    margin-bottom: var(--espaciado-lg);
+    text-transform: uppercase;
+}
+
+.historia-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: var(--espaciado-md);
+    color: var(--text-body);
+}
+
+.historia-text p:first-of-type {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-strong);
+}
+
+.historia-img-wrapper {
+    position: sticky;
+    top: 120px;
+    width: 100%;
+    text-align: center; /* centra la imagen (inline) en la columna */
+}
+
+.historia-img-wrapper img {
+    width: auto;         /* deja que la altura mande: foto retrato completa */
+    max-width: 100%;     /* seguridad en pantallas estrechas */
+    max-height: 520px;
+    height: auto;
+    object-fit: contain; /* no recorta: se ven los 2 completos */
+    border: 4px solid var(--color-primario);
+    box-shadow: 15px 15px 0 var(--color-primario);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.historia-img-wrapper:hover img {
+    transform: scale(1.03) translate(-5px, -5px);
+    box-shadow: 20px 20px 0 var(--color-primario);
+}
+
+/* =====================================================================
+   4. SECCIÓN MODALIDADES (GRID CARDS FOTOGRÁFICAS)
+   Las tarjetas son fotográficas: el texto blanco con sombra vive SOBRE
+   la foto, no sobre el fondo claro. Se portan casi 1:1.
+   ===================================================================== */
+.section-modalidades {
+    padding: var(--espaciado-xxl) 0;
+    background-color: var(--bg-page);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--espaciado-xl);
+}
+
+.section-title h2 {
+    color: var(--text-strong);
+    margin-bottom: var(--espaciado-xs);
+}
+
+.section-title p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.grid-modalidades {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espaciado-md);
+}
+
+@media (min-width: 768px) {
+    .grid-modalidades {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--espaciado-lg);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-modalidades {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card-modalidad {
+    background-color: var(--bg-surface);
+    border-radius: var(--radio-borde-tarjeta);
+    border: 1px solid var(--border-soft);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 400px;
+    padding: var(--espaciado-lg);
+}
+
+.card-modalidad .bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    z-index: 0;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s ease;
+    filter: none;
+}
+
+.card-modalidad::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: transparent;
+    transition: opacity 0.6s ease;
+}
+
+.card-content-wrapper {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.card-title {
+    font-family: var(--fuente-titulos);
+    font-size: 1.6rem !important;
+    line-height: 1.1 !important;
+    word-break: keep-all !important;
+    white-space: pre-wrap !important;
+    color: var(--color-blanco);
+    text-transform: uppercase;
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.9);
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.4s ease;
+    transform-origin: top left;
+    z-index: 100;
+}
+
+/* Refuerzo de contraste: el título SIEMPRE blanco sobre la foto del card,
+   gane quien gane la cascada de headings del tema claro */
+body.theme-light .card-title {
+    color: var(--color-blanco);
+}
+
+.card-title.title-kids {
+    color: #FFFFFF !important;
+    z-index: 110;
+    transition: color 0.3s ease;
+}
+
+.card-modalidad[data-disciplina="kids"]:hover .card-title.title-kids {
+    color: #ffff00 !important;
+}
+
+.card-desc {
+    color: var(--color-texto-principal);
+    font-size: var(--tamanio-p);
+    margin-bottom: var(--espaciado-md);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.card-action {
+    color: var(--color-primario);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: var(--tamanio-pequeno);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+}
+
+/* Efecto hover: foco oscureciendo el overlay (sobre la foto, tema-neutral) */
+.card-modalidad:hover .bg-image,
+.card-modalidad:focus .bg-image {
+    transform: scale(1.1);
+    filter: none;
+}
+
+.card-modalidad:hover::before,
+.card-modalidad:focus::before {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.card-modalidad .card-title,
+.card-modalidad .cell-nametag,
+.card-modalidad .avatar-names,
+.card-modalidad .card-desc {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+
+.card-modalidad:hover .card-title,
+.card-modalidad:hover .cell-nametag,
+.card-modalidad:hover .avatar-names {
+    color: #ffff00 !important;
+}
+
+.card-modalidad:hover,
+.card-modalidad:focus {
+    outline: none;
+    border-color: rgba(242, 238, 51, 0.6);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 0 20px rgba(242, 238, 51, 0.35);
+}
+
+.card-modalidad:hover .card-title,
+.card-modalidad:focus .card-title {
+    transform: scale(1.1) translateY(-10px);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+.card-modalidad:hover .card-desc,
+.card-modalidad:focus .card-desc,
+.card-modalidad:hover .card-action,
+.card-modalidad:focus .card-action {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =====================================================================
+   4a. BACKGROUND GRID 2x2 (Tarjeta Kids) - Portado 1:1 (fotográfico)
+   ===================================================================== */
+.card-modalidad[data-disciplina="kids"] .bg-grid-2x2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    font-size: 0;
+    border: none;
+    z-index: 5;
+}
+
+.card-modalidad[data-disciplina="kids"] .card-content-wrapper {
+    pointer-events: none;
+}
+
+.card-modalidad[data-disciplina="kids"] .grid-cell {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    font-size: 0;
+}
+
+.card-modalidad[data-disciplina="kids"] .grid-cell-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    cursor: pointer;
+    display: block;
+    pointer-events: auto;
+    text-decoration: none;
+    line-height: 0;
+    font-size: 0;
+}
+
+.card-modalidad[data-disciplina="kids"] .grid-cell a * {
+    pointer-events: none;
+}
+
+.card-modalidad[data-disciplina="kids"] .grid-cell-link > img:first-child {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    filter: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    pointer-events: none;
+    transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.card-modalidad[data-disciplina="kids"] .grid-cell-link:hover > img:first-child {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.grid-cell {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cell-avatar {
+    position: absolute !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 2px solid #1a1a1a !important;
+    bottom: 5px;
+    right: 5px;
+    z-index: 5 !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+    filter: none !important;
+    opacity: 1 !important;
+    transition: transform 0.3s ease !important;
+    pointer-events: auto !important;
+}
+
+.card-modalidad[data-disciplina="kids"]:hover .cell-avatar {
+    transform: scale(1.15) !important;
+}
+
+.cell-nametag {
+    position: absolute;
+    bottom: 12px;
+    right: 42px;
+    font-family: var(--fuente-titulos);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    z-index: 6;
+    pointer-events: none;
+}
+
+.card-modalidad[data-disciplina="kids"]:hover .cell-nametag {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* =====================================================================
+   4b. AVATAR STACK (Instructores en Tarjetas) - Sobre foto, portado 1:1
+   ===================================================================== */
+.avatar-stack {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    position: relative;
+    z-index: 5;
+}
+
+.avatar-stack-imgs {
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.avatar-stack-imgs a {
+    text-decoration: none;
+    line-height: 0;
+    margin-left: -12px;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.2s ease, z-index 0.2s;
+    cursor: pointer;
+}
+
+.avatar-stack-imgs a:first-child {
+    margin-left: 0;
+    z-index: 4;
+}
+
+.avatar-stack-imgs img,
+.avatar-stack-imgs a img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    border: 2px solid #1a1a1a;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    display: block;
+    pointer-events: none;
+}
+
+.avatar-stack-imgs a:nth-child(2) {
+    z-index: 3;
+}
+
+.avatar-stack-imgs a:nth-child(3) {
+    z-index: 2;
+}
+
+.avatar-stack-imgs a:nth-child(4) {
+    z-index: 1;
+}
+
+.avatar-stack-imgs a:hover {
+    transform: translateY(-5px) scale(1.15);
+    z-index: 10 !important;
+}
+
+.avatar-names {
+    margin-left: 12px;
+    font-size: 0.75rem;
+    color: var(--color-blanco);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+a.avatar-stack-link {
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+}
+
+/* Avatar informativo sin instructor confirmado: no clicable */
+.avatar-stack-static {
+    pointer-events: none;
+    cursor: default;
+}
+
+a.avatar-stack-link:hover .avatar-stack-imgs {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+
+a.avatar-stack-link:hover .avatar-names {
+    color: #ffff00;
+    transition: color 0.3s ease;
+}
+
+/* =====================================================================
+   5. HORARIOS
+   Sección clara; la tabla (horarios.css) permanece oscura a propósito
+   como "tarjeta" de acento con cabecera amarilla.
+   ===================================================================== */
+.section-horarios {
+    padding: var(--espaciado-xxl) 0;
+    text-align: center;
+    background-color: var(--bg-page);
+}
+
+.section-horarios h2 {
+    color: var(--text-strong);
+}
+
+.section-horarios .horarios-intro {
+    color: var(--text-muted);
+    margin-bottom: var(--espaciado-lg);
+}
+
+.horarios-placeholder {
+    padding: 2rem;
+    border: 1px dashed var(--border-soft);
+    border-radius: var(--radio-borde-tarjeta);
+    color: var(--text-muted);
+}
+
+/* =====================================================================
+   6. TABLÓN DE ANUNCIOS / NOTICIAS
+   ===================================================================== */
+.section-tablon {
+    padding: var(--espaciado-xl) 0 var(--espaciado-xxl);
+    background-color: var(--bg-surface);
+}
+
+.grid-tablon {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espaciado-lg);
+    margin-top: var(--espaciado-lg);
+}
+
+.card-tablon {
+    background: var(--bg-page);
+    border: 1px solid var(--border-soft);
+    border-left: 4px solid var(--color-primario);
+    padding: var(--espaciado-lg);
+    border-radius: 4px;
+    box-shadow: var(--sombra-tarjeta-light);
+    transition: transform var(--transicion-rapida);
+}
+
+.card-tablon:hover {
+    transform: translateY(-5px);
+}
+
+.card-tablon.aviso {
+    border-left-color: #ff3333;
+}
+
+.card-tablon.evento {
+    border-left-color: #0d6efd;
+}
+
+.card-tablon.evento .tablon-fecha {
+    color: #0d6efd;
+}
+
+.tablon-fecha {
+    font-family: var(--fuente-titulos);
+    color: var(--accent-ink);
+    font-size: var(--tamanio-pequeno);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: var(--espaciado-xs);
+}
+
+.tablon-titulo {
+    font-size: var(--tamanio-h3);
+    margin-bottom: var(--espaciado-xs);
+    color: var(--text-strong);
+}
+
+.tablon-desc {
+    color: var(--text-body);
+}
+
+/* =====================================================================
+   7. EL EQUIPO (Cards Profesores)
+   ===================================================================== */
+.section-equipo {
+    padding: var(--espaciado-xxl) 0;
+    background-color: var(--bg-page);
+    border-top: 1px solid var(--border-soft);
+}
+
+.grid-equipo {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espaciado-lg);
+}
+
+@media (min-width: 768px) {
+    .grid-equipo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-equipo {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.card-profesor {
+    background-color: var(--bg-page);
+    border-radius: var(--radio-borde-tarjeta);
+    overflow: hidden;
+    text-align: center;
+    transition: transform var(--transicion-suave), box-shadow var(--transicion-suave);
+    border: 1px solid var(--border-soft);
+    scroll-margin-top: 110px;
+}
+
+.card-profesor:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra-tarjeta-light), 0 0 15px rgba(242, 238, 51, 0.25);
+    border-color: rgba(242, 238, 51, 0.6);
+}
+
+.profesor-foto-wrapper {
+    width: 65%;
+    aspect-ratio: 1 / 1;
+    margin: var(--espaciado-lg) auto 0;
+    padding: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background-color: #f0f0f0;
+    border: 2px solid var(--color-primario);
+    transition: all 0.4s ease;
+    box-shadow: none;
+}
+
+.profesor-foto {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 50%;
+    /* Overscan: empuja los bordes irregulares del PNG fuera de la máscara */
+    transform: scale(1.25) !important;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.6s ease;
+    /* En reposo: leve desaturación (en claro no se oscurece como en dark) */
+    filter: grayscale(30%);
+}
+
+.card-profesor:hover .profesor-foto-wrapper {
+    filter: drop-shadow(0px 4px 10px rgba(242, 238, 51, 0.5));
+}
+
+.card-profesor:hover .profesor-foto {
+    transform: scale(1.35) !important;
+    filter: grayscale(0%);
+}
+
+.profesor-info {
+    padding: var(--espaciado-lg) var(--espaciado-md);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.profesor-nombre {
+    font-family: var(--fuente-titulos);
+    font-size: 1.8rem;
+    line-height: 1.1;
+    color: var(--text-strong);
+    margin-bottom: 4px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.profesor-cargo {
+    color: var(--accent-ink);
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: var(--espaciado-sm);
+    display: block;
+}
+
+.profesor-desc {
+    font-size: var(--tamanio-pequeno);
+    color: var(--text-muted);
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+}
+
+/* =====================================================================
+   8. INSTALACIONES (Carrusel CSS Scroll Snap - sin JavaScript)
+   ===================================================================== */
+.section-instalaciones {
+    padding: var(--espaciado-xxl) 0;
+    background-color: var(--bg-surface);
+}
+
+.carrusel-instalaciones {
+    display: flex;
+    gap: var(--espaciado-md);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: var(--espaciado-md);
+    padding: var(--espaciado-xs) var(--espaciado-xs) var(--espaciado-sm);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primario) rgba(0, 0, 0, 0.08);
+}
+
+/* Scrollbar fina y amarilla como affordance de "hay más fotos" (WebKit) */
+.carrusel-instalaciones::-webkit-scrollbar {
+    height: 6px;
+}
+
+.carrusel-instalaciones::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+}
+
+.carrusel-instalaciones::-webkit-scrollbar-thumb {
+    background: var(--color-primario);
+    border-radius: 3px;
+}
+
+.carrusel-slide {
+    flex: 0 0 auto;
+    width: min(85vw, 420px);
+    aspect-ratio: 4 / 3;
+    scroll-snap-align: center;
+    position: relative;
+    margin: 0;
+    border-radius: var(--radio-borde-tarjeta);
+    overflow: hidden;
+    border: 1px solid var(--border-soft);
+    background-color: var(--bg-page);
+}
+
+.carrusel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.carrusel-slide:hover img {
+    transform: scale(1.05);
+}
+
+/* Caption sobre gradiente oscuro: misma lenguaje que los cards fotográficos */
+.carrusel-slide figcaption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 2.5rem var(--espaciado-sm) var(--espaciado-sm);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+    color: var(--color-blanco);
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Las fotos del carrusel abren el lightbox (lightbox.js) */
+.carrusel-slide img {
+    cursor: zoom-in;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carrusel-instalaciones {
+        scroll-behavior: auto;
+    }
+
+    .carrusel-slide img {
+        transition: none;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   8a. LIGHTBOX (click-to-enlarge de la galería; overlay creado por JS)
+   --------------------------------------------------------------------- */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10002;
+    /* Sobre el header (9999) y el panel de navegación (10000/10001) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espaciado-sm);
+    padding: var(--espaciado-md);
+    background-color: rgba(0, 0, 0, 0.92);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lightbox-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.lightbox-img {
+    max-width: 92vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radio-borde-tarjeta);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-caption {
+    color: var(--color-blanco);
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: var(--espaciado-sm);
+    right: var(--espaciado-sm);
+    width: 44px;
+    height: 44px;
+    /* Área táctil mínima recomendada */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    border-radius: 50%;
+    color: var(--color-blanco);
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color var(--transicion-rapida), transform var(--transicion-rapida);
+}
+
+.lightbox-close:hover {
+    background: var(--color-primario);
+    color: var(--color-negro);
+    transform: scale(1.08);
+}
+
+body.lightbox-open {
+    overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .lightbox-overlay,
+    .lightbox-close {
+        transition: none;
+    }
+}
+
+/* Protagonismo de la foto: sin máscaras oscuras en la galería */
+#instalaciones .card-modalidad::before,
+#instalaciones .card-modalidad::after {
+    display: none;
+    opacity: 0;
+}
+
+#instalaciones .card-modalidad .bg-image {
+    filter: brightness(1);
+}
+
+#instalaciones .card-modalidad:hover .bg-image,
+#instalaciones .card-modalidad:focus .bg-image {
+    transform: scale(1.05);
+    filter: brightness(1);
+}
+
+#instalaciones .card-title {
+    color: var(--color-blanco) !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* =====================================================================
+   9. UBICACIÓN Y CONTACTO
+   ===================================================================== */
+.section-contacto {
+    background-color: var(--bg-page);
+    border-top: 1px solid var(--border-soft);
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 4rem 2rem;
+    background-color: var(--bg-surface);
+}
+
+@media (max-width: 992px) {
+    .contacto-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contacto-info h2 {
+    font-family: var(--fuente-titulos);
+    color: var(--text-strong);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.contacto-desc {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: var(--text-body);
+}
+
+.contacto-desc strong {
+    color: var(--accent-ink);
+}
+
+/* Teléfonos de la sede: tarjetas lineales con chip-icono
+   (visualización 3-3-3 española; enlaces en E.164) */
+.contacto-telefonos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.tel-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background-color: var(--bg-page);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radio-borde-boton);
+    text-decoration: none;
+    max-width: 340px;
+    transition: transform var(--transicion-rapida), border-color var(--transicion-rapida),
+        box-shadow var(--transicion-rapida);
+}
+
+.tel-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-primario);
+    box-shadow: var(--sombra-tarjeta-light);
+}
+
+.tel-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-primario);
+    color: var(--color-negro);
+    /* SVG negro sobre chip amarillo: contraste máximo */
+}
+
+.tel-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.tel-label {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tel-text strong {
+    color: var(--text-strong);
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+}
+
+.contacto-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-action {
+    padding: 12px 24px;
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Primario: amarillo con texto negro (contraste ~16:1); hover invierte a negro */
+.btn-action.primary {
+    background-color: var(--color-primario);
+    color: #000;
+    font-weight: 800;
+    border: 2px solid var(--color-primario);
+}
+
+.btn-action.primary:hover {
+    background-color: var(--text-strong);
+    border-color: var(--text-strong);
+    color: var(--color-primario);
+}
+
+/* Secundario: contorno oscuro (el contorno amarillo del tema dark es ilegible en blanco) */
+.btn-action.secondary {
+    background-color: transparent;
+    color: var(--text-strong);
+    font-weight: 800;
+    border: 2px solid var(--text-strong);
+}
+
+.btn-action.secondary:hover {
+    background-color: var(--text-strong);
+    color: var(--color-primario);
+}
+
+/* Mapa: sin el filtro invert() del tema oscuro */
+.contacto-mapa iframe {
+    filter: grayscale(60%);
+    transition: filter 0.4s ease;
+    border-radius: 12px;
+    max-height: 350px;
+    border: 1px solid var(--border-soft);
+}
+
+.contacto-mapa iframe:hover {
+    filter: none;
+}
+
+/* Banner hacia la otra sede (reconstruido con tokens definidos) */
+.cross-sede-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-page);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: var(--radio-borde-tarjeta);
+    margin-top: 20px;
+    padding: 25px 20px;
+    text-decoration: none;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cross-sede-banner:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-primario);
+    box-shadow: var(--sombra-tarjeta-light);
+}
+
+@keyframes bounce-icon {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.cross-sede-banner:hover span.icon {
+    animation: bounce-icon 0.6s ease infinite;
+}
+
+.cross-sede-banner span.icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.cross-sede-banner h4 {
+    margin: 0;
+    color: var(--text-body);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.cross-sede-banner h4 strong {
+    color: var(--accent-ink);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.cross-sede-banner:hover h4 strong {
+    color: var(--text-strong);
+}
+
+/* =====================================================================
+   10. SOCIAL PROOF (TESTIMONIOS & AUTORIDAD)
+   ===================================================================== */
+.section-autoridad {
+    padding: var(--espaciado-xxl) 0;
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.autoridad-resumen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: var(--espaciado-xl);
+}
+
+.estrellas {
+    color: #f5b301;
+    /* Oro con más cuerpo para fondo claro */
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin-bottom: var(--espaciado-xs);
+}
+
+.google-reviews-logo {
+    height: 30px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.reviews-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+.reviews-subtitle span {
+    font-weight: 700;
+    color: var(--accent-ink);
+}
+
+.link-resena {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--text-strong);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.link-resena:hover {
+    color: var(--accent-ink);
+}
+
+.grid-testimonios {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espaciado-md);
+}
+
+@media (min-width: 992px) {
+    .grid-testimonios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.testimonio-card {
+    background-color: var(--bg-page);
+    padding: var(--espaciado-lg);
+    border-radius: var(--radio-borde-tarjeta);
+    border: 1px solid var(--border-soft);
+    border-left: 4px solid var(--color-primario);
+    box-shadow: var(--sombra-tarjeta-light);
+}
+
+.testimonio-texto {
+    font-style: italic;
+    color: var(--text-body);
+    margin-bottom: var(--espaciado-sm);
+    font-size: var(--tamanio-p);
+}
+
+.testimonio-autor {
+    font-family: var(--fuente-titulos);
+    color: var(--text-strong);
+    text-transform: uppercase;
+    font-size: var(--tamanio-pequeno);
+}
+
+/* =====================================================================
+   11. FOOTER (Ancla de marca: se mantiene oscuro a propósito)
+   ===================================================================== */
+.site-footer {
+    background-color: #0f0f0f;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4rem 2rem 2rem;
+    text-align: center;
+}
+
+.footer-logo {
+    display: block;
+    width: 120px;
+    margin: 0 auto 3rem auto;
+    filter: grayscale(100%) brightness(200%);
+    transition: filter 0.3s ease;
+}
+
+.footer-logo:hover {
+    filter: none;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+/* El footer es oscuro: los headings del tema claro se revierten aquí */
+body.theme-light .site-footer h4 {
+    color: #fff;
+}
+
+.footer-col h4 {
+    font-family: var(--fuente-titulos);
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-col p {
+    color: #888;
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.footer-col strong {
+    color: #ccc;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.social-item {
+    color: #888;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.social-item:hover {
+    color: var(--color-primario);
+}
+
+.social-item svg {
+    color: #E1306C;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 2rem;
+    color: #555;
+    font-size: 0.85rem;
+}
+
+/* Badge Parking (sobre footer oscuro) */
+.badge-parking {
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 1.5rem auto 0 auto;
+    padding: 5px 15px;
+    border: 1px solid var(--color-primario);
+    border-radius: 50px;
+    color: var(--color-primario);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+    0% {
+        box-shadow: 0 0 0 0 rgba(242, 238, 51, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(242, 238, 51, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(242, 238, 51, 0);
+    }
+}
+
+/* =====================================================================
+   12. CTA WHATSAPP FLOTANTE (BADGE GIRATORIO) - Tema-neutral
+   ===================================================================== */
+.btn-whatsapp-float {
+    position: fixed;
+    bottom: var(--espaciado-md);
+    right: var(--espaciado-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    border: 2px solid #25D366;
+    border-radius: 50%;
+    padding: 0;
+    width: 80px;
+    height: 80px;
+    text-decoration: none;
+    z-index: 9999;
+    transition: all var(--transicion-suave);
+    overflow: visible;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.btn-whatsapp-float:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* =====================================================================
+   13. AJUSTES MOBILE (<768px) - Header compacto, grids apiladas
+   ===================================================================== */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 5px 15px;
+        gap: 15px;
+    }
+
+    .site-logo {
+        height: 65px;
+        width: 65px;
+        object-fit: contain;
+        flex-shrink: 0;
+        transform: scale(1.1);
+        transform-origin: left center;
+    }
+
+    .site-header.is-scrolled .site-logo {
+        height: 48px;
+        width: 48px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .social-links {
+        align-items: center;
+    }
+
+    .contacto-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-action {
+        width: 100%;
+    }
+}

@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('noticias-container');
     if (!container) return;
 
-    fetch('/noticias.json')
+    // Fuente por sede: data-noticias-src en el contenedor; fallback = tablón compartido
+    fetch(container.dataset.noticiasSrc || '/noticias.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
