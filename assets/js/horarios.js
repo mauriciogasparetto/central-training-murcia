@@ -22,8 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(horariosData => {
-            console.log("Dados de Horarios carregados com sucesso:", horariosData);
-            const daysHeaders = ["DISCIPLINAS", "LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES", "SÁBADO"];
+            const daysHeaders =["DISCIPLINAS", "LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES", "SÁBADO"];
 
             // Construimos la estructura inicial (Contenedor Wrapper y base Grid)
             let htmlContent = `

@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(noticiasData => {
-            console.log("Dados de Noticias carregados com sucesso:", noticiasData);
             container.innerHTML = ''; // Limpiar el contenedor estático
 
             noticiasData.forEach(noticia => {

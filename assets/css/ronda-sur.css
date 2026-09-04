@@ -991,6 +991,10 @@ a.avatar-stack-link:hover .avatar-names {
     background-color: var(--bg-surface);
 }
 
+.carrusel-wrapper {
+    position: relative;
+}
+
 .carrusel-instalaciones {
     display: flex;
     gap: var(--espaciado-md);
@@ -999,29 +1003,21 @@ a.avatar-stack-link:hover .avatar-names {
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
     scroll-padding-inline: var(--espaciado-md);
-    padding: var(--espaciado-xs) var(--espaciado-xs) var(--espaciado-sm);
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-primario) rgba(0, 0, 0, 0.08);
+    padding: var(--espaciado-xs);
+    /* La barra nativa no se dibuja en iOS/Android: la sustituimos por
+       .carrusel-progreso, idéntica en todas las plataformas (carrusel.js) */
+    scrollbar-width: none;
 }
 
-/* Scrollbar fina y amarilla como affordance de "hay más fotos" (WebKit) */
 .carrusel-instalaciones::-webkit-scrollbar {
-    height: 6px;
-}
-
-.carrusel-instalaciones::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.08);
-    border-radius: 3px;
-}
-
-.carrusel-instalaciones::-webkit-scrollbar-thumb {
-    background: var(--color-primario);
-    border-radius: 3px;
+    display: none;
 }
 
 .carrusel-slide {
     flex: 0 0 auto;
-    width: min(85vw, 420px);
+    /* 70vw deja asomar ~30px de la foto siguiente (descontados el padding del
+       .container y el gap): la señal de "hay más" en móvil */
+    width: min(70vw, 420px);
     aspect-ratio: 4 / 3;
     scroll-snap-align: center;
     position: relative;
@@ -1062,12 +1058,99 @@ a.avatar-stack-link:hover .avatar-names {
     cursor: zoom-in;
 }
 
+/* Barra de progreso + contador: sustituyen a la scrollbar nativa como
+   indicador de "cuántas fotos hay y dónde estoy" (actualizados por carrusel.js) */
+.carrusel-barra {
+    display: flex;
+    align-items: center;
+    gap: var(--espaciado-sm);
+    margin-top: var(--espaciado-sm);
+    padding: 0 var(--espaciado-xs);
+}
+
+.carrusel-progreso {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--border-soft);
+    overflow: hidden;
+}
+
+/* Pulgar proporcional (ancho y posición los calcula carrusel.js): a diferencia
+   de una barra que se llena, éste se ve desde el primer momento */
+.carrusel-progreso span {
+    display: block;
+    height: 100%;
+    width: 20%;
+    border-radius: 2px;
+    background-color: var(--color-primario);
+    transition: transform 0.15s linear;
+}
+
+.carrusel-contador {
+    flex: 0 0 auto;
+    margin: 0;
+    font-family: var(--fuente-titulos);
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Flechas: solo en escritorio; en móvil el swipe (y el peek) ya bastan */
+.carrusel-nav {
+    display: none;
+    position: absolute;
+    top: calc(50% - var(--espaciado-md));
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.55);
+    border: none;
+    border-radius: 50%;
+    color: var(--color-blanco);
+    font-family: var(--fuente-texto);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: var(--z-index-base);
+    transition: background-color var(--transicion-rapida), opacity var(--transicion-rapida);
+}
+
+.carrusel-nav:hover,
+.carrusel-nav:focus-visible {
+    background-color: var(--color-negro);
+}
+
+.carrusel-nav:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.carrusel-nav--prev {
+    left: calc(var(--espaciado-xs) * -1);
+}
+
+.carrusel-nav--next {
+    right: calc(var(--espaciado-xs) * -1);
+}
+
+@media (min-width: 768px) {
+
+    .carrusel-nav {
+        display: flex;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .carrusel-instalaciones {
         scroll-behavior: auto;
     }
 
-    .carrusel-slide img {
+    .carrusel-slide img,
+    .carrusel-progreso span {
         transition: none;
     }
 }
@@ -1087,6 +1170,11 @@ a.avatar-stack-link:hover .avatar-names {
     gap: var(--espaciado-sm);
     padding: var(--espaciado-md);
     background-color: rgba(0, 0, 0, 0.92);
+    /* Los handlers de swipe son {passive:true} y no pueden hacer preventDefault():
+       cedemos el eje horizontal a lightbox.js (si no, el navegador lo interpreta como
+       gesto de "atrás") y conservamos el pinch-zoom sobre la foto */
+    touch-action: pan-y pinch-zoom;
+    overscroll-behavior: contain;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -1118,13 +1206,21 @@ a.avatar-stack-link:hover .avatar-names {
     margin: 0;
 }
 
-.lightbox-close {
+.lightbox-contador {
+    margin: 0;
+    font-family: var(--fuente-titulos);
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    color: var(--color-texto-secundario);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Cerrar y navegar comparten el mismo botón circular de 44px (área táctil mínima) */
+.lightbox-close,
+.lightbox-nav {
     position: absolute;
-    top: var(--espaciado-sm);
-    right: var(--espaciado-sm);
     width: 44px;
     height: 44px;
-    /* Área táctil mínima recomendada */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1138,10 +1234,37 @@ a.avatar-stack-link:hover .avatar-names {
     transition: background-color var(--transicion-rapida), transform var(--transicion-rapida);
 }
 
-.lightbox-close:hover {
+.lightbox-close {
+    top: var(--espaciado-sm);
+    right: var(--espaciado-sm);
+}
+
+.lightbox-nav {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.2rem;
+}
+
+.lightbox-nav--prev {
+    left: var(--espaciado-sm);
+}
+
+.lightbox-nav--next {
+    right: var(--espaciado-sm);
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
     background: var(--color-primario);
     color: var(--color-negro);
+}
+
+.lightbox-close:hover {
     transform: scale(1.08);
+}
+
+.lightbox-nav:hover {
+    transform: translateY(-50%) scale(1.08);
 }
 
 body.lightbox-open {
@@ -1151,7 +1274,8 @@ body.lightbox-open {
 @media (prefers-reduced-motion: reduce) {
 
     .lightbox-overlay,
-    .lightbox-close {
+    .lightbox-close,
+    .lightbox-nav {
         transition: none;
     }
 }
